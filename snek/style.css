@@ -1,0 +1,65 @@
+body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding-top: 20px;
+  }
+  
+  h1, h2, h3 {
+    font-weight: normal;
+  }
+  
+  canvas {
+    background: #181818;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid #333;
+  }
+  
+  #gameOverForm {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  }
+  
+  #gameOverForm input {
+    padding: 10px;
+    width: 220px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  #submitScoreBtn {
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    width: 220px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #submitScoreBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  ol#leaderboard {
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  ol#leaderboard li {
+    background-color: #1f1f1f;
+    margin: 8px auto;
+    padding: 8px;
+    border-radius: 6px;
+    width: 240px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }  

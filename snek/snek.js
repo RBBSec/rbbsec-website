@@ -64,13 +64,25 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.fillText("🧑‍💻", food.x, food.y + box);
 
   
-      // Draw snake
-      ctx.fillStyle = "green";
-      snake.forEach(segment => {
-        ctx.fillRect(segment.x, segment.y, box, box);
-        ctx.strokeStyle = "black";
-        ctx.strokeRect(segment.x, segment.y, box, box);
-      });
+    // Draw snake with rounded segments
+    snake.forEach((segment, index) => {
+        ctx.fillStyle = index === 0 ? "black" : "red";
+        drawRoundedRect(ctx, segment.x, segment.y, box, box, 5);
+    });
+    
+    // Helper function for rounded rectangles
+    function drawRoundedRect(ctx, x, y, width, height, radius) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.arcTo(x + width, y, x + width, y + height, radius);
+        ctx.arcTo(x + width, y + height, x, y + height, radius);
+        ctx.arcTo(x, y + height, x, y, radius);
+        ctx.arcTo(x, y, x + width, y, radius);
+        ctx.closePath();
+        ctx.fill();
+    }
+  
+  
   
       // Draw score
       ctx.fillStyle = "black";
@@ -118,22 +130,40 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(gameLoop);
         gameRunning = false;
       
-        // Draw final game frame
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-        // Draw "Game Over" text
         ctx.fillStyle = "#222";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
       
         ctx.fillStyle = "#fff";
         ctx.font = "32px Arial";
         ctx.textAlign = "center";
-        ctx.fillText("💀 Game Over", canvas.width / 2, canvas.height / 2 - 30);
-      
+        ctx.fillText("💀 Game Over", canvas.width / 2, canvas.height / 2 - 80);
         ctx.font = "20px Arial";
-        ctx.fillText(`Your Score: ${score}`, canvas.width / 2, canvas.height / 2 + 10);
+        ctx.fillText(`Your Score: ${score}`, canvas.width / 2, canvas.height / 2 - 40);
       
-        ctx.font = "16px Arial";
-        ctx.fillText("Press SPACE to restart", canvas.width / 2, canvas.height / 2 + 40);
+        // Show form instead of popup
+        const form = document.getElementById("gameOverForm");
+        form.style.display = "block";
+      
+        document.getElementById("submitScoreBtn").onclick = () => {
+          const nickname = document.getElementById("nickname").value;
+          const email = document.getElementById("email").value;
+      
+          if (nickname && email) {
+            submitScore(nickname, email, score);
+            form.style.display = "none";
+            document.getElementById("nickname").value = "";
+            document.getElementById("email").value = "";
+      
+            ctx.font = "16px Arial";
+            ctx.fillText("Score submitted! Press SPACE to restart", canvas.width / 2, canvas.height / 2 + 40);
+          } else {
+            alert("Please enter both nickname and email!");
+          }
+        };
       }      
+      
+      // Load leaderboard initially when page loads
+      loadLeaderboard();
+      
   });  
