@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
   function submitScore(nickname, email, score) {
-    fetch("https://script.google.com/macros/s/AKfycbzs4zOc6MJ6XQx1KWVlVF9l4DfKBEud12gTc4S8APhVaimqLl9-na541VVwSHelCWAQvw/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx3Jh7SvgRRkUwS4OQHpfiXxMQGmaW_ho7DUwhHnliBzFqE6tXDq4slIZETyw-sF9AS2Q/exec", {
       method: "POST",
       body: JSON.stringify({ nickname, email, score }),
       headers: { "Content-Type": "application/json" }
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadLeaderboard() {
-    fetch("https://script.google.com/macros/s/AKfycbzs4zOc6MJ6XQx1KWVlVF9l4DfKBEud12gTc4S8APhVaimqLl9-na541VVwSHelCWAQvw/exec")
+    fetch("https://script.google.com/macros/s/AKfycbx3Jh7SvgRRkUwS4OQHpfiXxMQGmaW_ho7DUwhHnliBzFqE6tXDq4slIZETyw-sF9AS2Q/exec")
       .then(response => response.json())
       .then(data => {
         const leaderboardElement = document.getElementById("leaderboard");
