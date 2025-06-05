@@ -73,3 +73,17 @@ body {
     margin-right: auto; 
     image-rendering: pixelated; /* Retro pixelated effect */
 }
+
+#ready-text {
+    font-size: 34px;
+    color: #e51f27; /* Retro bright red from your palette */
+    text-align: center;
+    margin: 15px 0;
+    animation: flashingText 1s infinite;
+}
+
+@keyframes flashingText {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
