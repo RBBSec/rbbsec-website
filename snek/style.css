@@ -9,6 +9,7 @@ body {
     font-family: 'VT323', monospace;
     color: #d4cfd0; /* Warm Light Grey for retro text */
     position: relative;
+    image-rendering: pixelated; /* Retro pixelated effect */
 }
 
 #game-board {
