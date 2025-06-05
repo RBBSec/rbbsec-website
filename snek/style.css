@@ -58,11 +58,11 @@ body {
 }
 
 #instruction-text {
-    margin-top: 20px;
-    color: #d4cfd0; /* Warm Light Grey instructions */
-    display: block; /* Makes margin auto centering work */
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #d4cfd0; /* consistent retro grey */
+    line-height: 1.2;
 }
 
 #logo {
