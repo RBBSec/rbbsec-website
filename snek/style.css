@@ -1,84 +1,69 @@
 body {
-    background-color: #012437;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-    text-align: center;
+    background-color: #263c49; /* Dark Teal (retro background) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
-    padding-top: 20px;
-  }
-  
-  h1, h2, h3 {
-    font-weight: normal;
-  }
-  
-  canvas {
-    background: #181818;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    border: 2px solid #333;
-  }
-  
-  #gameOverForm {
-    background-color: #1f1f1f;
-    padding: 15px;
+    font-family: 'VT323', monospace;
+    color: #d4cfd0; /* Warm Light Grey for retro text */
+    position: relative;
+}
+
+#game-board {
+    background-color: #c4cfa3; /* Soft Retro Green */
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
     border-radius: 8px;
-    display: inline-block;
+    margin: 5px;
+}
+
+.game-border-1 {
+    border: 10px solid #5e727d; /* Darker muted teal border */
+    border-radius: 20px;
+}
+
+.game-border-2 {
+    border: 8px solid #d4cfd0; /* Warm grey inner border */
+    border-radius: 16px;
+}
+
+.game-border-3 {
+    border: 5px solid #5e727d; /* Darker muted teal inner border */
+    border-radius: 12px;
+}
+
+.snake {
+    background-color: #e51f27; /* Vibrant Logo Red (retro pixel style) */
+    border-radius: 4px;
+}
+
+.food {
+    background-color: #5e727d; /* Mid-teal food item */
+    border-radius: 4px;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
+
+#score, #highScore {
+    font-size: 32px;
+    color: #d4cfd0; /* Warm Light Grey for retro scores */
+}
+
+#instruction-text {
     margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-  }
-  
-  #gameOverForm input {
-    padding: 10px;
-    width: 220px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    border: none;
-  }
-  
-  #submitScoreBtn {
-    cursor: pointer;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 10px;
-    width: 220px;
-    transition: background-color 0.3s ease;
-  }
-  
-  #submitScoreBtn:hover {
-    background-color: #0056b3;
-  }
-  
-  ol#leaderboard {
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  ol#leaderboard li {
-    background-color: #1f1f1f;
-    margin: 8px auto;
-    padding: 8px;
-    border-radius: 6px;
-    width: 240px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  } 
-
-footer {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 10px;
-  color: #bbb;
-  text-align: center;
-  border-top: 1px solid #333;
+    color: #d4cfd0; /* Warm Light Grey instructions */
 }
 
-footer a {
-  color: #007BFF;
-  text-decoration: none;
+#logo {
+    width: 250px;
+    position: absolute;
+    bottom: 20px;
+    opacity: 0.6; /* Retro faded look */
 }
-
-footer a:hover {
-  text-decoration: underline;
-}
-  
