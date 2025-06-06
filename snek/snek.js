@@ -78,7 +78,7 @@ function moveSnake() {
 function draw() {
     board.innerHTML = '';
     snake.forEach(segment => createElement('snake', segment));
-    createElement('food', food, 'food.png');
+    createImageElement('food', food, 'food.png');
     updateScore();
 }
 
