@@ -85,6 +85,14 @@ body {
     border-radius: 4px;
 }
 
+.snake-head {
+    width: 20px;
+    height: 20px;
+    image-rendering: pixelated;
+    align-self: center;
+    justify-self: center; 
+}
+
 .food {
     width: 20px;
     height: 20px;

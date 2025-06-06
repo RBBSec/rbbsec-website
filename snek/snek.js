@@ -77,7 +77,14 @@ function moveSnake() {
 // Draw the game elements
 function draw() {
     board.innerHTML = '';
-    snake.forEach(segment => createElement('snake', segment));
+    snake.forEach((segment, index) => {
+        if (index === 0) {
+            createImageElement('snake-head', segment, 'snake.png'); // HEAD
+        } else {
+            createElement('snake', segment); // BODY
+        }
+    });
+      
     createImageElement('food', food, 'food.png');
     updateScore();
 }
