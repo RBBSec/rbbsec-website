@@ -136,3 +136,19 @@ body {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
+
+.footer {
+    width: 100%;
+    background-color: #263c49;
+    /* RBBSec Dark Teal */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    /* Centre your logo horizontally */
+    align-items: center;
+    position: fixed;
+    /* Navbar fixed at top */
+    bottom: 50px;
+    left: 0;
+    z-index: 100;
+}
