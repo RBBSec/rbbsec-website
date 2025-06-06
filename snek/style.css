@@ -12,6 +12,8 @@ body {
     image-rendering: pixelated; /* Retro pixelated effect */
 }
 
+
+
 .navbar {
     width: 100%;
     background-color: #263c49;
@@ -24,7 +26,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     /* Navbar fixed at top */
-    top: 0;
+    top: 50px;
     left: 0;
     z-index: 100;
 }
@@ -37,7 +39,7 @@ body {
 
 /* Add margin-top to the container below to prevent overlap */
 .game-container {
-    margin-top: 100px;
+    margin-top: 140px;
     /* Adjust if needed based on navbar height */ }
 
 #game-board {
