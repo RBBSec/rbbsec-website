@@ -86,8 +86,11 @@ body {
 }
 
 .food {
-    background-color: #5e727d; /* Mid-teal food item */
-    border-radius: 4px;
+    width: 18px;
+    height: 18px;
+    image-rendering: pixelated;
+    align-self: center;
+    justify-self: center;
 }
 
 .game-wrapper {

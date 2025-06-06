@@ -78,8 +78,18 @@ function moveSnake() {
 function draw() {
     board.innerHTML = '';
     snake.forEach(segment => createElement('snake', segment));
-    createElement('food', food);
+    createElement('food', food, 'food.png');
     updateScore();
+}
+
+function createImageElement(className, position, imagePath) {
+    const img = document.createElement('img');
+    img.src = imagePath;
+    img.className = className;
+    img.style.gridColumn = position.x;
+    img.style.gridRow = position.y;
+    img.alt = 'Food';
+    board.appendChild(img);
 }
 
 // Create a snake or food element
