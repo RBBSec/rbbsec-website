@@ -20,14 +20,14 @@ body {
     /* White text for contrast */
     text-align: center;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'VT323', monospace;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 200;
     /* Higher than navbar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+}
 
 .navbar {
     width: 100%;
@@ -38,7 +38,6 @@ body {
     justify-content: center;
     /* Centre your logo horizontally */
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: fixed;
     /* Navbar fixed at top */
     top: 50px;
@@ -91,15 +90,26 @@ body {
     border-radius: 4px;
 }
 
+.game-wrapper {
+    position: relative;
+    display: inline-block;
+    /* matches the game board’s width */
+}
+
 .scores {
+    position: absolute;
+    top: -40px;
+    /* adjust based on your spacing needs */
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    width: 400px;
+    padding: 0 10px;
 }
 
 #score, #highScore {
     font-size: 32px;
-    color: #d4cfd0; /* Warm Light Grey for retro scores */
+    color: #d4cfd0;
+    margin: 0; 
 }
 
 #instruction-text {
