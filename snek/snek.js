@@ -1,8 +1,7 @@
 // DOM Elements
 const board = document.getElementById('game-board');
-const instructionText = document.getElementById('instruction-text');
+const splashScreen = document.getElementById('splash-screen');
 const logo = document.getElementById('logo');
-const readyText = document.getElementById('ready-text');
 const scoreElement = document.getElementById('score');
 const highScoreElement = document.getElementById('highScore');
 
@@ -29,10 +28,8 @@ document.addEventListener('keydown', (e) => {
 // Start the game
 function startGame() {
     gameRunning = true;
-    document.getElementById('splash-screen').style.display = 'none';
-    instructionText.style.display = 'none';
+    splashScreen.style.display = 'none'; // Single element hides the full splash
     logo.style.display = 'none';
-    readyText.style.display = 'none';
 
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
@@ -155,10 +152,10 @@ function updateHighScore() {
 function stopGame() {
     clearInterval(gameInterval);
     gameRunning = false;
-    instructionText.style.display = 'block';
+    splashScreen.style.display = 'flex';
     logo.style.display = 'block';
-    readyText.style.display = 'block';
 }
+
 
 // Gradually increase snake speed after eating food
 function increaseSpeed() {
