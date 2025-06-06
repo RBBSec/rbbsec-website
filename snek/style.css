@@ -140,7 +140,7 @@ body {
 }
 
 /* Only the "READY PLAYER 1" text flashes */
-.flash-text {
+.ready-text {
     color: #e51f27;
     /* RBBSec red */
     animation: flash 1s infinite;
