@@ -122,27 +122,41 @@ body {
     margin: 0; 
 }
 
-#instruction-text {
-    margin-top: 10px;
-    margin-bottom: 20px;
+#splash-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(38, 60, 73, 0.95);
+    /* Dark teal, mostly opaque */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    font-family: 'VT323', monospace;
     text-align: center;
-    color: #d4cfd0; /* consistent retro grey */
-    line-height: 1.2;
+    color: #e51f27;
+    /* Logo red */
 }
 
-#ready-text {
-    font-size: 34px;
-    color: #e51f27; /* Retro bright red from your palette */
-    text-align: center;
-    margin: 15px 0;
-    animation: flashingText 1s infinite;
+#splash-screen h1,
+#splash-screen h2 {
+    margin: 10px;
+    animation: flash 1s infinite;
 }
 
-@keyframes flashingText {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
+@keyframes flash {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    } }
 
 .footer {
     width: 100%;

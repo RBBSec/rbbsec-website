@@ -29,6 +29,7 @@ document.addEventListener('keydown', (e) => {
 // Start the game
 function startGame() {
     gameRunning = true;
+    document.getElementById('splash-screen').style.display = 'none';
     instructionText.style.display = 'none';
     logo.style.display = 'none';
     readyText.style.display = 'none';
