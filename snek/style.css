@@ -12,7 +12,22 @@ body {
     image-rendering: pixelated; /* Retro pixelated effect */
 }
 
-
+.top-banner {
+    width: 100%;
+    background-color: #e51f27;
+    /* RBBSec Logo Red */
+    color: #ffffff;
+    /* White text for contrast */
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'VT323', monospace;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    /* Higher than navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
 
 .navbar {
     width: 100%;
