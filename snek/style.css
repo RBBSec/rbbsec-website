@@ -98,7 +98,7 @@ body {
 
 .scores {
     position: absolute;
-    top: -40px;
+    top: 0px;
     /* adjust based on your spacing needs */
     width: 100%;
     display: flex;
