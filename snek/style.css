@@ -164,7 +164,7 @@ body {
         opacity: 0.3;
     } }
 
-.footer {
+footer {
     width: 100%;
     background: linear-gradient(to right, #263c49, #d32634);
     /* RBBSec Dark Teal */
