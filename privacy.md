@@ -1,4 +1,3 @@
-LegalVision Privacy Policy - legalvision.com.au
 We are committed to treating the personal information we collect in accordance with the Australian Privacy Principles in the Privacy Act 1988 (Cth.) (the Privacy Act). This Privacy Policy sets out how we handle personal information provided to us, or otherwise collected by us when providing our legal services to you (Services) or when otherwise interacting with you.
 
 In this Privacy Policy, “LegalVision”, “we”, “us”, “our” refers to LegalVision ILP Pty Ltd (ACN 167 804 088) and any entity in the LegalVision corporate group. 
