@@ -53,11 +53,11 @@ body {
 
 .intro-text {
     max-width: 700px;
-    margin: 40px auto 10px auto;
+    margin: 10px auto 10px auto;
     /* Top spacing under navbar/logo */
     text-align: center;
-    font-size: 18px;
-    padding: 0 10px;
+    font-size: 20px;
+    padding: 0 20px;
     color: #d4cfd0;
     /* Warm Light Grey */
     font-family: 'VT323', monospace;
@@ -65,7 +65,7 @@ body {
 }
 
 .game-container {
-    margin-top: 18px;
+    margin-top: 20px;
     /* Makes space for banner + navbar */
     display: flex;
     flex-direction: column;
@@ -198,42 +198,46 @@ body {
         opacity: 0.3;
     } }
 
-.leaderboard {
-    margin-top: 30px;
-    text-align: center;
+.leaderboard-container {
+    background-color: black;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 4px 4px, 4px 4px;
+    background-position: 0 0, 2px 2px;
+    animation: starfield 10s linear infinite;
+
+    padding: 20px;
+    border: 2px solid #0ff902;
+    border-radius: 10px;
+    color: #ffffff;
+    width: fit-content;
+    margin: 20px auto;
     font-family: 'VT323', monospace;
-    color: #00ff00;
-    /* retro green */
+    text-align: center;
 }
 
 .leaderboard-title {
-    font-size: 24px;
+    color: #0ff902;
+    font-size: 28px;
     margin-bottom: 10px;
-    color: #00ff00;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px black;
 }
 
-.leaderboard-table {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    border-collapse: collapse;
+#leaderboard {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     font-size: 20px;
-    color: #ffffff;
 }
 
-.leaderboard-table th,
-.leaderboard-table td {
-    padding: 8px;
-    text-align: center;
-    border-bottom: 1px solid #555;
-}
+@keyframes starfield {
+    from {
+        background-position: 0 0, 2px 2px;
+    }
 
-.leaderboard-table th {
-    color: #00ff00;
-    font-size: 18px;
-    text-shadow: 1px 1px #000;
+    to {
+        background-position: -100px 100px, -98px 102px;
+    }
 }
 
 .footer a {

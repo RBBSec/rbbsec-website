@@ -163,3 +163,23 @@ function increaseSpeed() {
     clearInterval(gameInterval);
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
+
+function loadLeaderboard() {
+    fetch('your_api_url')
+        .then(res => res.json())
+        .then(data => {
+            const leaderboard = document.getElementById('leaderboard');
+            leaderboard.innerHTML = '';
+
+            data.leaderboard.slice(0, 5).forEach((entry, index) => {
+                leaderboard.innerHTML += `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${entry.score}</td>
+              <td>${entry.nickname}</td>
+            </tr>
+          `;
+            });
+        });
+}
+  

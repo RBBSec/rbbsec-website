@@ -23,9 +23,9 @@
     </nav>
 
     <div class="intro-text">
-        <p>Red Bellied Black Sec is coming soon.</p>
-        <p>In the meantime, play a game of snake, catch the hackers, beat the high scores.</p> 
-        <p>Join our leaderboard, leave your email and join our mailing list, the top 10 winners will receive a T-Shirt on launch!</p>
+        Red Bellied Black Sec is coming soon.
+        <br>In the meantime, play a game of snake, catch the hackers, beat the high scores. 
+        <br>Join our leaderboard, leave your email and join our mailing list, the top 10 winners will receive a T-Shirt on launch!
     </div>
 
     <div class="game-container">
@@ -47,6 +47,7 @@
                 <div class="game-border-3">
                     <div id="game-board"></div>
                     <div id="splash-screen">
+                        <h1 id="snake-game">Snake</h1>
                         <h1 class="ready-text">READY PLAYER ONE</h1>
                         <h2 id="instruction-text">1. Press spacebar to begin game.</h2>
                         <h2 id="instruction-text">2. Use arrow keys to control your snake!</h2>
@@ -56,22 +57,12 @@
             </div>
         </div>
     </div>
-
-    <div class="leaderboard">
-        <h2 class="leaderboard-title">TOP 5 PLAYERS</h2>
-        <table class="leaderboard-table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>SCORE</th>
-                    <th>NAME</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboard">
-                <!-- Entries injected via JS -->
-            </tbody>
-        </table>
+    
+    <div class="leaderboard-container">
+        <h2 class="leaderboard-title">🏆 TOP 10 HACKERS</h2>
+        <ul id="leaderboard"></ul>
     </div>
+      
       
 
     <div class="footer">
