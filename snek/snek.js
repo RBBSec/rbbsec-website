@@ -25,6 +25,8 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+let finalScore = 0;
+
 // Start the game
 function startGame() {
     gameRunning = true;
@@ -134,11 +136,13 @@ function checkCollision() {
 function resetGame() {
     stopGame();
     updateHighScore();
+    finalScore = snake.length - 1; // 💡 Store the score when the game ends
     snake = [{ x: 10, y: 10 }];
     food = generateFood();
     direction = 'RIGHT';
     gameSpeed = 150;
     updateScore();
+    endGame(); // 🔁 Trigger endGame only once game is reset
 }
 
 // Update score display
@@ -190,10 +194,10 @@ function endGame() {
 
         const name = document.getElementById("playerName").value.trim();
         const email = document.getElementById("playerEmail").value.trim();
-        const score = snake.length - 1;
+        const score = finalScore;
 
-        if (!name || score <= 0) {
-            alert("Please enter your name and earn a score!");
+        if (!name || score <= 0 || score > 500) {
+            alert("Nice try... but that's not a valid score!");
             return;
         }
 
@@ -228,6 +232,7 @@ function endGame() {
             });
     };
 }
+
   
 function loadLeaderboard() {
     fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
