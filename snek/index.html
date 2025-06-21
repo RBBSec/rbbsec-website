@@ -57,16 +57,24 @@
                                 <h2 id="instruction-text">!! GOOD HUNTING !!</h2>
                             </div>
                             
+                            <!-- GAME OVER SCREEN -->
                             <div id="game-over-screen" class="game-over-screen" style="display: none;">
-                                <h1 class="game-over-text">GAME OVER</h1>
-                                <div class="score-form-container">
-                                    <h2>🎮 Submit Your Score</h2>
-                                    <form id="submitScoreForm">
-                                        <input type="text" id="playerName" placeholder="Enter your name" required maxlength="20" />
-                                        <input type="email" id="playerEmail" placeholder="Enter your email (optional)" maxlength="50" />
-                                        <button type="submit">Upload Score</button>
-                                    </form>
-                                </div>                      
+                                <div class="game-over-box">
+                                    <h1 class="game-over-text">
+                                        GAME OVER<span class="blinking-cursor">_</span>
+                                    </h1>
+
+                                    <div class="score-form-container">
+                                        <h2>🎮 Submit Your Score</h2>
+                                        <form id="submitScoreForm">
+                                            <input type="text" id="playerName" placeholder="Enter your name" required maxlength="20" />
+                                            <input type="email" id="playerEmail" placeholder="Enter your email (optional)" maxlength="50" />
+                                            <button type="submit">Upload Score</button>
+                                        </form>
+                                    </div>
+
+                                    <button id="restartBtn" class="restart-button">🔁 Play Again</button>
+                                </div>
                             </div>
                         </div>
                     </div>

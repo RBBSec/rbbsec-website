@@ -365,18 +365,63 @@ body {
     height: 100%;
     background-color: rgba(38, 60, 73, 0.97);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 15;
-    text-align: center;
     font-family: 'VT323', monospace;
+}
+
+.game-over-box {
+    background-color: #000;
+    border: 3px solid #e51f27;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 20px #00ffcc;
+    animation: rbbsec-border-flash 1.5s infinite alternate;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
 }
 
 .game-over-text {
     font-size: 64px;
     color: #e51f27;
-    text-shadow: 2px 2px #000, 0 0 5px #00ffcc;
-    animation: flash 1.5s infinite;
+    text-shadow: 2px 2px #000, 0 0 6px #00ffcc;
     margin-bottom: 20px;
+}
+
+.blinking-cursor {
+    font-weight: bold;
+    font-size: 64px;
+    color: #0ff902;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e51f27;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+.restart-button:hover {
+    background-color: #c01c21;
 }
