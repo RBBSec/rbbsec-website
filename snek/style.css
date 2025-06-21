@@ -263,15 +263,22 @@ body {
     text-shadow: 0 0 2px #ffffff;
 }
 
-@keyframes starfield {
-    from {
-        background-position: 0 0, 2px 2px;
-    }
-
-    to {
-        background-position: -100px 100px, -98px 102px;
-    }
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 10px;
+    user-select: none;
+    z-index: 1;
+    animation-name: fall;
+    animation-timing-function: linear;
 }
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0.3;
+    } }
 
 .footer a {
     width: 100%;
