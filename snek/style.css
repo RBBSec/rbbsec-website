@@ -163,7 +163,7 @@ body {
         opacity: 0.3;
     } }
 
-.footer {
+.footer a {
     width: 100%;
     background: #d32634;
     color: #ffffff;
