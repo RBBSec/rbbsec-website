@@ -48,7 +48,7 @@ body {
 #logo {
     width: 300px;
     image-rendering: pixelated;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .intro-text {
@@ -57,7 +57,7 @@ body {
     /* Top spacing under navbar/logo */
     text-align: center;
     font-size: 20px;
-    padding: 0 20px;
+    padding: 20px 20px;
     color: #d4cfd0;
     /* Warm Light Grey */
     font-family: 'VT323', monospace;
