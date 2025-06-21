@@ -182,6 +182,33 @@ body {
         opacity: 0.3;
     } }
 
+.leaderboard-title {
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    color: #0ff902;
+    /* retro green or use #e51f27 for red */
+    text-align: center;
+    text-shadow: 1px 1px #000;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
 .footer a {
     width: 100%;
     background: #d32634;
