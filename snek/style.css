@@ -175,6 +175,10 @@ body {
     font-family: 'VT323', monospace;
 }
 
+.snake-game img {
+    height: 30px;
+}
+
 /* Only the "READY PLAYER 1" text flashes */
 .ready-text {
     color: #0ff902;
