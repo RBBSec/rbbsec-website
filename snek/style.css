@@ -300,10 +300,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 50px;
-    left: 0;
-    z-index: 100;
 }
 
 .score-form-container {
