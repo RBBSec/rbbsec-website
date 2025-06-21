@@ -65,7 +65,7 @@ body {
 }
 
 .game-container {
-    padding-top: 20px;
+    padding-top: 40px;
     margin-top: 40px;
     display: flex;
     flex-direction: column;
