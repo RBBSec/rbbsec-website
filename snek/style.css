@@ -291,15 +291,18 @@ body {
         opacity: 0.3;
     } }
 
-.footer a {
+.footer {
     width: 100%;
     background: #d32634;
-    color: #ffffff;
-    font-family: 'VT323', monospace;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer a {
+    color: #ffffff;
+    font-family: 'VT323', monospace;
 }
 
 .score-form-container {
