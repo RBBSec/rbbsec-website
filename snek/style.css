@@ -179,8 +179,11 @@ body {
     font-family: 'VT323', monospace;
 }
 
-.snake-game h1 {
+.snake-game {
     font-size: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .snake-game img {
