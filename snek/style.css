@@ -52,7 +52,7 @@ body {
 
 /* Add margin-top to the container below to prevent overlap */
 .game-container {
-    margin-top: 40px;
+    margin-top: 20px;
     /* Adjust if needed based on navbar height */ }
 
 #game-board {
