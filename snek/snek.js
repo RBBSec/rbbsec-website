@@ -164,26 +164,37 @@ function increaseSpeed() {
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
 
-function loadLeaderboard() {
-    fetch("https://corsproxy.io/?https://your-script-url-here/exec")
-        .then(response => response.json())
+function submitScore(name, score, email = '') {
+    fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, score, email })
+    })
+        .then(res => res.json())
         .then(data => {
-            if (data.status === "success") {
-                const leaderboardElement = document.getElementById("leaderboard");
-                leaderboardElement.innerHTML = data.leaderboard.slice(0, 10)
-                    .map((entry, index) => `
-              <li>
-                <span>${index + 1}</span>
-                <span>${entry.nickname.toUpperCase()}</span>
-                <span>${entry.score}</span>
-              </li>
-            `)
-                    .join('');
-            } else {
-                console.error("Leaderboard error:", data.message);
-            }
+            console.log("Score submitted", data);
+            loadLeaderboard(); // refresh leaderboard
         })
-        .catch(error => console.error("Error loading leaderboard:", error));
+        .catch(err => console.error("Error submitting score:", err));
 }
+  
+function loadLeaderboard() {
+    fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
+        .then(res => res.json())
+        .then(data => {
+            const leaderboardElement = document.getElementById('leaderboard');
+            leaderboardElement.innerHTML = data.slice(0, 10).map((entry, i) => `
+          <li>
+            <span>${i + 1}</span>
+            <span>${entry.name.toUpperCase()}</span>
+            <span>${entry.score}</span>
+          </li>
+        `).join('');
+        })
+        .catch(err => console.error("Error loading leaderboard:", err));
+}
+  
   
   
