@@ -22,11 +22,6 @@ body {
     padding: 10px 20px;
     font-size: 20px;
     font-family: 'VT323', monospace;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 200;
-    /* Higher than navbar */
 }
 
 .navbar {
@@ -38,16 +33,10 @@ body {
     justify-content: center;
     /* Centre your logo horizontally */
     align-items: center;
-    position: fixed;
-    /* Navbar fixed at top */
-    top: 50px;
-    left: 0;
-    z-index: 100;
 }
 
 #logo {
     width: 300px;
-    image-rendering: pixelated;
     margin-bottom: 20px;
 }
 
