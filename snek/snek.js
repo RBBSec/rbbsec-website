@@ -222,12 +222,12 @@ function loadLeaderboard() {
         .then(data => {
             const leaderboardElement = document.getElementById('leaderboard');
             leaderboardElement.innerHTML = data.slice(0, 10).map((entry, i) => `
-          <li>
-            <span>${i + 1}</span>
-            <span>${entry.name.toUpperCase()}</span>
-            <span>${entry.score}</span>
-          </li>
-        `).join('');
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${entry.name.toUpperCase()}</td>
+                    <td>${entry.score}</td>
+                </tr>
+            `).join('');
         })
         .catch(err => console.error("Error loading leaderboard:", err));
 }
