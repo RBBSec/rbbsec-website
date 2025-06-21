@@ -46,14 +46,29 @@
                 <div class="game-border-2">
                     <div class="game-border-3">
                         <div id="game-board"></div>
-                        <div id="splash-screen">
-                            <h1 class="snake-game"><img src="snake_pix.png"/> Snake Game <img src="snake_pix.png" /></h1>
-                            <h1 class="ready-text">READY PLAYER ONE</h1>
-                            <div class="leaderboard-footer">CREDIT 1</div>
-                            <h2 id="instruction-text">1. Press spacebar to begin game.</h2>
-                            <h2 id="instruction-text">2. Use arrow keys to control your snake!</h2>
-                            <h2 id="instruction-text">!! GOOD HUNTING !!</h2>
-                        </div>    
+
+                            <!-- Splash screen for intro -->
+                            <div id="splash-screen">
+                                <h1 class="snake-game"><img src="snake_pix.png"/> Snake Game <img src="snake_pix.png" /></h1>
+                                <h1 class="ready-text">READY PLAYER ONE</h1>
+                                <div class="leaderboard-footer">CREDIT 1</div>
+                                <h2 id="instruction-text">1. Press spacebar to begin game.</h2>
+                                <h2 id="instruction-text">2. Use arrow keys to control your snake!</h2>
+                                <h2 id="instruction-text">!! GOOD HUNTING !!</h2>
+                            </div>
+                            
+                            <div id="game-over-screen" class="game-over-screen" style="display: none;">
+                                <h1 class="game-over-text">GAME OVER</h1>
+                                <div class="score-form-container">
+                                    <h2>🎮 Submit Your Score</h2>
+                                    <form id="submitScoreForm">
+                                        <input type="text" id="playerName" placeholder="Enter your name" required maxlength="20" />
+                                        <input type="email" id="playerEmail" placeholder="Enter your email (optional)" maxlength="50" />
+                                        <button type="submit">Upload Score</button>
+                                    </form>
+                                </div>                      
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
