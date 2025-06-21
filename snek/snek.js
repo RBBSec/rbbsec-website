@@ -181,36 +181,25 @@ function endGame() {
     gameRunning = false;
 
     const form = document.getElementById("score-form");
+    const gameOverScreen = document.getElementById("game-over-screen");
     const submitBtn = document.getElementById("submitScoreForm");
 
-    // Show the form
-    form.style.display = "block";
-
-    // Clear previous event listeners
-    submitBtn.onsubmit = null;
+    form.style.display = "none"; // Hide default form
+    gameOverScreen.style.display = "flex"; // Show new screen
 
     submitBtn.onsubmit = function (e) {
         e.preventDefault();
-
         const name = document.getElementById("playerName").value.trim();
         const email = document.getElementById("playerEmail").value.trim();
         const score = finalScore;
 
-        if (!name || score <= 0 || score > 500) {
-            alert("Nice try... but that's not a valid score!");
-            return;
-        }
+        if (!name || score <= 0) return alert("Please enter your name and earn a score!");
 
-        // Prevent duplicate name + score
         const leaderboard = JSON.parse(localStorage.getItem("submittedScores") || "[]");
         const exists = leaderboard.find(entry => entry.name === name && entry.score === score);
-        if (exists) {
-            alert("Score already submitted!");
-            return;
-        }
+        if (exists) return alert("Score already submitted!");
 
         const createdAt = new Date().toISOString();
-
         fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -220,19 +209,20 @@ function endGame() {
             .then(data => {
                 leaderboard.push({ name, score });
                 localStorage.setItem("submittedScores", JSON.stringify(leaderboard));
-
-                form.style.display = "none";
-                document.getElementById("playerName").value = "";
-                document.getElementById("playerEmail").value = "";
                 loadLeaderboard();
+                alert("Score submitted!"); // Optional feedback
             })
             .catch(err => {
                 alert("Error submitting score!");
                 console.error(err);
             });
     };
-}
+  }
 
+document.getElementById("restartBtn").addEventListener("click", () => {
+    document.getElementById("game-over-screen").style.display = "none";
+    startGame();
+});
   
 function loadLeaderboard() {
     fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
