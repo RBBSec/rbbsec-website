@@ -4,6 +4,8 @@ const splashScreen = document.getElementById('splash-screen');
 const logo = document.getElementById('logo');
 const scoreElement = document.getElementById('score');
 const highScoreElement = document.getElementById('highScore');
+const gameOverScreen = document.getElementById("game-over-screen");
+const submitBtn = document.getElementById("submitScoreForm");
 
 // Game settings
 const gridSize = 20;
@@ -16,7 +18,7 @@ let gameRunning = false, highScore = 0;
 // Initial render
 draw();
 
-// Event Listener: Keyboard controls
+// Keyboard listener
 document.addEventListener('keydown', (e) => {
     if (!gameRunning && e.code === 'Space') {
         startGame();
@@ -25,25 +27,25 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-let finalScore = 0;
-
 // Start the game
 function startGame() {
     gameRunning = true;
-    splashScreen.style.display = 'none'; // Single element hides the full splash
+    splashScreen.style.display = 'none';
     logo.style.display = 'none';
-
+    gameOverScreen.style.display = 'none';
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
 
-// Main game loop
+// Game loop
 function gameLoop() {
     moveSnake();
-    if (checkCollision()) endGame();
+    if (checkCollision()) {
+        endGame();
+        return;
+    }
     draw();
 }
 
-// Set snake direction
 function setDirection(key) {
     const directions = {
         'ArrowUp': 'UP',
@@ -54,10 +56,8 @@ function setDirection(key) {
     if (directions[key]) direction = directions[key];
 }
 
-// Move snake based on current direction
 function moveSnake() {
     const head = { ...snake[0] };
-
     if (direction === 'UP') head.y--;
     if (direction === 'DOWN') head.y++;
     if (direction === 'LEFT') head.x--;
@@ -67,17 +67,14 @@ function moveSnake() {
 
     if (head.x === food.x && head.y === food.y) {
         increaseSpeed();
-        // Don't pop — this makes the snake grow
     } else {
         snake.pop();
     }
 }
 
-// Draw the game elements
 function draw() {
     board.innerHTML = '';
 
-    // Draw snake
     snake.forEach((segment, index) => {
         if (index === 0) {
             createImageElement('snake-head', segment, 'snake_pix.png');
@@ -86,14 +83,10 @@ function draw() {
         }
     });
 
-    // 🟢 Ensure food doesn't overlap snake
-    if (snake.some(segment => segment.x === food.x && segment.y === food.y)) {
+    if (snake.some(seg => seg.x === food.x && seg.y === food.y)) {
         food = generateFood();
     }
-
-    // Draw food
     createImageElement('food', food, 'food.png');
-
     updateScore();
 }
 
@@ -103,11 +96,9 @@ function createImageElement(className, position, imagePath) {
     img.className = className;
     img.style.gridColumn = position.x;
     img.style.gridRow = position.y;
-    img.alt = 'Food';
     board.appendChild(img);
 }
 
-// Create a snake or food element
 function createElement(className, position) {
     const element = document.createElement('div');
     element.className = className;
@@ -116,7 +107,6 @@ function createElement(className, position) {
     board.appendChild(element);
 }
 
-// Randomly generate food
 function generateFood() {
     return {
         x: Math.floor(Math.random() * gridSize) + 1,
@@ -124,52 +114,41 @@ function generateFood() {
     };
 }
 
-// Check for collision (walls or snake itself)
 function checkCollision() {
     const head = snake[0];
     const hitWall = head.x < 1 || head.x > gridSize || head.y < 1 || head.y > gridSize;
-    const hitSelf = snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y);
+    const hitSelf = snake.slice(1).some(s => s.x === head.x && s.y === head.y);
     return hitWall || hitSelf;
 }
 
-// Reset the game after collision
 function resetGame() {
     stopGame();
     updateHighScore();
-    finalScore = snake.length - 1; // 💡 Store the score when the game ends
     snake = [{ x: 10, y: 10 }];
     food = generateFood();
     direction = 'RIGHT';
     gameSpeed = 150;
     updateScore();
-    endGame(); // 🔁 Trigger endGame only once game is reset
 }
 
-// Update score display
 function updateScore() {
-    const currentScore = snake.length - 1;
-    scoreElement.textContent = currentScore.toString().padStart(3, '0');
+    const current = snake.length - 1;
+    scoreElement.textContent = current.toString().padStart(3, '0');
 }
 
-// Update high score display
 function updateHighScore() {
-    const currentScore = snake.length - 1;
-    if (currentScore > highScore) {
-        highScore = currentScore;
+    const current = snake.length - 1;
+    if (current > highScore) {
+        highScore = current;
         highScoreElement.textContent = highScore.toString().padStart(3, '0');
     }
 }
 
-// Stop the game and reset visuals
 function stopGame() {
     clearInterval(gameInterval);
     gameRunning = false;
-    splashScreen.style.display = 'flex';
-    logo.style.display = 'block';
 }
 
-
-// Gradually increase snake speed after eating food
 function increaseSpeed() {
     if (gameSpeed > 50) gameSpeed -= 5;
     clearInterval(gameInterval);
@@ -177,23 +156,20 @@ function increaseSpeed() {
 }
 
 function endGame() {
-    clearInterval(gameInterval);
-    gameRunning = false;
-
+    stopGame();
+    const score = snake.length - 1;
     const form = document.getElementById("score-form");
-    const gameOverScreen = document.getElementById("game-over-screen");
-    const submitBtn = document.getElementById("submitScoreForm");
+    const playerName = document.getElementById("playerName");
+    const playerEmail = document.getElementById("playerEmail");
 
-    form.style.display = "none"; // Hide default form
-    gameOverScreen.style.display = "flex"; // Show new screen
+    form.style.display = "flex";
 
     submitBtn.onsubmit = function (e) {
         e.preventDefault();
-        const name = document.getElementById("playerName").value.trim();
-        const email = document.getElementById("playerEmail").value.trim();
-        const score = finalScore;
+        const name = playerName.value.trim();
+        const email = playerEmail.value.trim();
 
-        if (!name || score <= 0) return alert("Please enter your name and earn a score!");
+        if (!name || score <= 0) return alert("Enter your name and earn a score!");
 
         const leaderboard = JSON.parse(localStorage.getItem("submittedScores") || "[]");
         const exists = leaderboard.find(entry => entry.name === name && entry.score === score);
@@ -209,21 +185,26 @@ function endGame() {
             .then(data => {
                 leaderboard.push({ name, score });
                 localStorage.setItem("submittedScores", JSON.stringify(leaderboard));
+                form.style.display = "none";
+                playerName.value = "";
+                playerEmail.value = "";
                 loadLeaderboard();
-                alert("Score submitted!"); // Optional feedback
             })
             .catch(err => {
                 alert("Error submitting score!");
                 console.error(err);
             });
     };
-  }
+}
 
-document.getElementById("restartBtn").addEventListener("click", () => {
-    document.getElementById("game-over-screen").style.display = "none";
-    startGame();
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("restartBtn").addEventListener("click", () => {
+        document.getElementById("game-over-screen").style.display = "none";
+        resetGame();
+        startGame();
+    });
 });
-  
+
 function loadLeaderboard() {
     fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
         .then(res => res.json())
@@ -239,7 +220,5 @@ function loadLeaderboard() {
         })
         .catch(err => console.error("Error loading leaderboard:", err));
 }
- 
+
 window.addEventListener("DOMContentLoaded", loadLeaderboard);
-  
-  
