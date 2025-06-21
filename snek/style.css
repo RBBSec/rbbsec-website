@@ -175,6 +175,10 @@ body {
     font-family: 'VT323', monospace;
 }
 
+.snake-game {
+    font-size: 25px;
+}
+
 .snake-game img {
     height: 30px;
 }
