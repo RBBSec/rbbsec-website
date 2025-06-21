@@ -279,3 +279,55 @@ body {
     left: 0;
     z-index: 100;
 }
+
+.score-form-container {
+    background-color: #000;
+    color: #0ff902;
+    border: 2px solid #0ff902;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px auto;
+    font-family: 'VT323', monospace;
+    text-align: center;
+    animation: flash-border 1s infinite alternate;
+}
+
+.score-form-container h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #00ffcc;
+    text-shadow: 1px 1px #000;
+}
+
+#submitScoreForm input {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+}
+
+#submitScoreForm button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-family: 'VT323', monospace;
+    background-color: #e51f27;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+@keyframes flash-border {
+    0% {
+        box-shadow: 0 0 10px #0ff902;
+    }
+
+    100% {
+        box-shadow: 0 0 20px #00ffcc;
+    }
+}

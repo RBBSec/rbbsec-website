@@ -164,21 +164,49 @@ function increaseSpeed() {
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
 
-function submitScore(name, score, email = '') {
-    fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, score, email })
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log("Score submitted", data);
-            loadLeaderboard(); // refresh leaderboard
+function endGame() {
+    clearInterval(gameInterval);
+    gameRunning = false;
+
+    document.getElementById("score-form").style.display = "block";
+    document.getElementById("submitScoreForm").onsubmit = function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("playerName").value.trim();
+        const email = document.getElementById("playerEmail").value.trim();
+        const score = snake.length - 1;
+
+        if (!name || score <= 0) return alert("Please enter your name and earn a score!");
+
+        // Optional: prevent duplicate name+score
+        const leaderboard = JSON.parse(localStorage.getItem("submittedScores") || "[]");
+        const exists = leaderboard.find(entry => entry.name === name && entry.score === score);
+        if (exists) return alert("Score already submitted!");
+
+        // Add timestamp
+        const createdAt = new Date().toISOString();
+
+        fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, score, createdAt })
         })
-        .catch(err => console.error("Error submitting score:", err));
+            .then(res => res.json())
+            .then(data => {
+                // Save to local memory to prevent resubmits
+                leaderboard.push({ name, score });
+                localStorage.setItem("submittedScores", JSON.stringify(leaderboard));
+
+                document.getElementById("score-form").style.display = "none";
+                loadLeaderboard();
+            })
+            .catch(err => {
+                alert("Error submitting score!");
+                console.error(err);
+            });
+    };
 }
+  
   
 function loadLeaderboard() {
     fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
