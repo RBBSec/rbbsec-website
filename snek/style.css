@@ -62,6 +62,7 @@ body {
     grid-template-rows: repeat(20, 20px);
     border-radius: 8px;
     margin: 5px;
+    align-items: center;
 }
 
 .game-border-1 {
