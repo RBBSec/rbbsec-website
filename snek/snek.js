@@ -77,7 +77,7 @@ function draw() {
     board.innerHTML = '';
     snake.forEach((segment, index) => {
         if (index === 0) {
-            createImageElement('snake-head', segment, 'snake.png'); // HEAD
+            createImageElement('snake-head', segment, 'snake_pix.png'); // HEAD
         } else {
             createElement('snake', segment); // BODY
         }
