@@ -149,8 +149,8 @@ body {
 /* Instruction text is white and doesn't flash */
 .instruction-text {
     color: #ffffff;
-    margin: 5px;
-    font-size: 20px;
+    margin: 2px;
+    font-size: 18px;
 }
 
 @keyframes flash {
