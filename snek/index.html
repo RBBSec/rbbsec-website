@@ -23,15 +23,23 @@
     </nav>
 
     <div class="intro-text">
-        <p>Red Bellied Black Sec is coming soon. In the meantime, play a game of snake, cath the hackers and if you wish to join our leaderboard, leave your email and join our mailing list, the top 10 winners will receive a T-Shirt on launch!</p>
+        <p>Red Bellied Black Sec is coming soon.</p>
+        <p>In the meantime, play a game of snake, catch the hackers, beat the high scores.</p> 
+        <p>Join our leaderboard, leave your email and join our mailing list, the top 10 winners will receive a T-Shirt on launch!</p>
     </div>
 
     <div class="game-container">
 
         <div class="game-wrapper">
             <div class="scores">
-                <h1 id="score">000</h1>
-                <h1 id="highScore">000</h1>    
+                <div class="score-block">
+                    <div class="score-label">1UP</div>
+                    <h1 id="score">000</h1>
+                </div>
+                <div class="score-block">
+                    <div class="score-label">HIGH SCORE</div>
+                    <h1 id="highScore">000</h1>
+                </div>        
             </div>
 
         <div class="game-border-1">
@@ -50,8 +58,21 @@
     </div>
 
     <div class="leaderboard">
-        <h2 class="leaderboard-title">🏆 HIGH SCORES</h2>
+        <h2 class="leaderboard-title">TOP 5 PLAYERS</h2>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>SCORE</th>
+                    <th>NAME</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard">
+                <!-- Entries injected via JS -->
+            </tbody>
+        </table>
     </div>
+      
 
     <div class="footer">
         <a href="privacy.html">Privacy Policy</a>

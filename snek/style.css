@@ -128,17 +128,33 @@ body {
 .scores {
     position: absolute;
     top: -40px;
-    /* push it above the board */
+    /* raise it higher if needed */
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 10px; 
+    padding: 0 30px;
+    font-family: 'VT323', monospace;
+    z-index: 10;
 }
 
-#score, #highScore {
+.score-block {
+    text-align: center;
+}
+
+.score-label {
+    font-size: 16px;
+    color: #e51f27;
+    letter-spacing: 1px;
+    margin-bottom: -6px;
+    text-shadow: 1px 1px #000;
+}
+
+#score,
+#highScore {
     font-size: 32px;
-    color: #d4cfd0;
-    margin: 0 20px; 
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 1px 1px #000; 
 }
 
 #splash-screen {
@@ -182,31 +198,42 @@ body {
         opacity: 0.3;
     } }
 
-.leaderboard-title {
-    font-family: 'VT323', monospace;
-    font-size: 32px;
-    color: #0ff902;
-    /* retro green or use #e51f27 for red */
+.leaderboard {
+    margin-top: 30px;
     text-align: center;
-    text-shadow: 1px 1px #000;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    animation: pulse 2s infinite;
+    font-family: 'VT323', monospace;
+    color: #00ff00;
+    /* retro green */
 }
 
-@keyframes pulse {
+.leaderboard-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00ff00;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px black;
+}
 
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+.leaderboard-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 20px;
+    color: #ffffff;
+}
 
-    50% {
-        opacity: 0.7;
-        transform: scale(1.05);
-    }
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.leaderboard-table th {
+    color: #00ff00;
+    font-size: 18px;
+    text-shadow: 1px 1px #000;
 }
 
 .footer a {
