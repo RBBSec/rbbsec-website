@@ -228,7 +228,6 @@ function endGame() {
             });
     };
 }
- 
   
 function loadLeaderboard() {
     fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
@@ -245,6 +244,7 @@ function loadLeaderboard() {
         })
         .catch(err => console.error("Error loading leaderboard:", err));
 }
-  
+ 
+window.addEventListener("DOMContentLoaded", loadLeaderboard);
   
   
