@@ -48,22 +48,24 @@ body {
 #logo {
     width: 300px;
     image-rendering: pixelated;
+    margin-bottom: 10px;
 }
 
 .intro-text {
     max-width: 700px;
-    margin: 120px auto 30px auto;
+    margin: 40px auto 10px auto;
     /* Top spacing under navbar/logo */
     text-align: center;
-    font-size: 16px;
-    padding: 0 20px;
+    font-size: 18px;
+    padding: 0 10px;
     color: #d4cfd0;
     /* Warm Light Grey */
     font-family: 'VT323', monospace;
+    line-height: 1.4;
 }
 
 .game-container {
-    margin-top: 180px;
+    margin-top: 18px;
     /* Makes space for banner + navbar */
     display: flex;
     flex-direction: column;
