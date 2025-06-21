@@ -47,7 +47,6 @@ body {
 
 #logo {
     width: 300px;
-    /* Adjust logo size as needed */
     image-rendering: pixelated;
 }
 
@@ -166,15 +165,14 @@ body {
 
 .footer {
     width: 100%;
-    background: linear-gradient(to right, #263c49, #d32634);
-    /* RBBSec Dark Teal */
+    background: #d32634;
+    color: #ffffff;
+    font-family: 'VT323', monospace;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    /* Centre your logo horizontally */
     align-items: center;
     position: fixed;
-    /* Navbar fixed at top */
     bottom: 50px;
     left: 0;
     z-index: 100;
