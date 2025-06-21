@@ -50,6 +50,18 @@ body {
     image-rendering: pixelated;
 }
 
+.intro-text {
+    max-width: 700px;
+    margin: 120px auto 30px auto;
+    /* Top spacing under navbar/logo */
+    text-align: center;
+    font-size: 16px;
+    padding: 0 20px;
+    color: #d4cfd0;
+    /* Warm Light Grey */
+    font-family: 'VT323', monospace;
+}
+
 .game-container {
     margin-top: 180px;
     /* Makes space for banner + navbar */
