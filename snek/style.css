@@ -240,20 +240,23 @@ body {
     background-color: #263c49;
     color: #ffffff;
     border: 3px solid #e51f27;
+    /* RBBSec red */
     border-radius: 15px;
     font-family: 'VT323', monospace;
     text-align: center;
+    animation: leaderboard-border-pulse 1s infinite alternate;
 }
 
-@keyframes flash-border {
+@keyframes leaderboard-border-pulse {
     0% {
         box-shadow: 0 0 10px #e51f27;
+        border-color: #e51f27;
     }
 
     100% {
         box-shadow: 0 0 20px #00ffcc;
-    }
-}
+        border-color: #00ffcc;
+    }   }
 
 .leaderboard-title {
     color: #00ff00;
