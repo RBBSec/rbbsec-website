@@ -99,8 +99,12 @@ body {
 }
 
 .snake {
-    background-color: #e51f27; /* Vibrant Logo Red (retro pixel style) */
+    background-color: #e51f27;
+    /* Vibrant red tail */
     border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    image-rendering: pixelated; 
 }
 
 .snake-head {
