@@ -205,14 +205,14 @@ body {
         radial-gradient(white 1px, transparent 1px);
     background-size: 4px 4px, 4px 4px;
     background-position: 0 0, 2px 2px;
-    animation: starfield 10s linear infinite;
+    animation: starfield 15s linear infinite;
 
     padding: 20px;
     border: 2px solid #0ff902;
-    border-radius: 10px;
+    border-radius: 12px;
     color: #ffffff;
-    width: fit-content;
-    margin: 20px auto;
+    width: 300px;
+    margin: 40px auto;
     font-family: 'VT323', monospace;
     text-align: center;
 }
@@ -221,13 +221,37 @@ body {
     color: #0ff902;
     font-size: 28px;
     margin-bottom: 10px;
+    text-shadow: 0 0 2px #0ff902;
 }
 
-#leaderboard {
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #d4cfd0;
+    border-bottom: 1px solid #5e727d;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.leaderboard-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 20px;
+}
+
+.leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin: 4px 0;
+}
+
+.leaderboard-footer {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 1px #ffffff;
 }
 
 @keyframes starfield {

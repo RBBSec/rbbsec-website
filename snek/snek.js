@@ -165,21 +165,25 @@ function increaseSpeed() {
 }
 
 function loadLeaderboard() {
-    fetch('your_api_url')
-        .then(res => res.json())
+    fetch("https://corsproxy.io/?https://your-script-url-here/exec")
+        .then(response => response.json())
         .then(data => {
-            const leaderboard = document.getElementById('leaderboard');
-            leaderboard.innerHTML = '';
-
-            data.leaderboard.slice(0, 5).forEach((entry, index) => {
-                leaderboard.innerHTML += `
-            <tr>
-              <td>${index + 1}</td>
-              <td>${entry.score}</td>
-              <td>${entry.nickname}</td>
-            </tr>
-          `;
-            });
-        });
+            if (data.status === "success") {
+                const leaderboardElement = document.getElementById("leaderboard");
+                leaderboardElement.innerHTML = data.leaderboard.slice(0, 10)
+                    .map((entry, index) => `
+              <li>
+                <span>${index + 1}</span>
+                <span>${entry.nickname.toUpperCase()}</span>
+                <span>${entry.score}</span>
+              </li>
+            `)
+                    .join('');
+            } else {
+                console.error("Leaderboard error:", data.message);
+            }
+        })
+        .catch(error => console.error("Error loading leaderboard:", error));
 }
+  
   
