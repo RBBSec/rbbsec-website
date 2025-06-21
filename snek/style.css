@@ -227,11 +227,11 @@ body {
     padding: 20px;
     background-color: black;
     color: #ffffff;
-    border: 3px solid #00ff00;
+    border: 3px solid #e51f27;
     border-radius: 15px;
     font-family: 'VT323', monospace;
     text-align: center;
-    box-shadow: 0 0 20px #00ff00;
+    box-shadow: 0 0 20px #e51f27;
 }
 
 .leaderboard-title {
