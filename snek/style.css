@@ -67,16 +67,28 @@ body {
 .game-container {
     padding-top: 20px;
     margin-top: 40px;
-    /* Makes space for banner + navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    border: 3px solid #00ff00;
+    justify-content: center;
+    border: 3px solid #e51f27;
+    /* RBBSec Red */
     border-radius: 15px;
     font-family: 'VT323', monospace;
     text-align: center;
-    box-shadow: 0 0 20px #00ff00;
+    animation: rbbsec-border-flash 1.5s infinite alternate;
+}
+
+@keyframes rbbsec-border-flash {
+    0% {
+        border-color: #e51f27;
+        box-shadow: 0 0 12px #e51f27;
+    }
+
+    100% {
+        border-color: #00ffcc;
+        box-shadow: 0 0 20px #00ffcc;
+    }
 }
 
 #game-board {
