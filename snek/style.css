@@ -175,8 +175,8 @@ body {
     font-family: 'VT323', monospace;
 }
 
-.snake-game {
-    font-size: 38px;
+.snake-game h1 {
+    font-size: 50px;
 }
 
 .snake-game img {
