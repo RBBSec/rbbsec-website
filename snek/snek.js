@@ -63,10 +63,9 @@ function moveSnake() {
 
     snake.unshift(head);
 
-    // Eat food or move forward
     if (head.x === food.x && head.y === food.y) {
-        food = generateFood();
         increaseSpeed();
+        // Don't pop — this makes the snake grow
     } else {
         snake.pop();
     }
@@ -75,15 +74,24 @@ function moveSnake() {
 // Draw the game elements
 function draw() {
     board.innerHTML = '';
+
+    // Draw snake
     snake.forEach((segment, index) => {
         if (index === 0) {
-            createImageElement('snake-head', segment, 'snake_pix.png'); // HEAD
+            createImageElement('snake-head', segment, 'snake_pix.png');
         } else {
-            createElement('snake', segment); // BODY
+            createElement('snake', segment);
         }
     });
-      
+
+    // 🟢 Ensure food doesn't overlap snake
+    if (snake.some(segment => segment.x === food.x && segment.y === food.y)) {
+        food = generateFood();
+    }
+
+    // Draw food
     createImageElement('food', food, 'food.png');
+
     updateScore();
 }
 
