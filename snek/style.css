@@ -159,7 +159,7 @@ body {
     font-size: 16px;
     color: #e51f27;
     letter-spacing: 1px;
-    margin-bottom: -6px;
+    margin-bottom: -5px;
     text-shadow: 1px 1px #000;
 }
 
@@ -214,7 +214,7 @@ body {
     margin: 2px;
     font-size: 18px;
     text-shadow: 1px 1px #000;
-    line-height: 1;
+    line-height: 0.5;
 }
 
 @keyframes flash {
