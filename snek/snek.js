@@ -156,39 +156,46 @@ function increaseSpeed() {
 }
 
 function endGame() {
-    stopGame();
-    const score = snake.length - 1;
-    const form = document.getElementById("score-form");
-    const playerName = document.getElementById("playerName");
-    const playerEmail = document.getElementById("playerEmail");
+    clearInterval(gameInterval);
+    gameRunning = false;
 
-    form.style.display = "flex";
+    finalScore = snake.length - 1;
+    document.getElementById("game-over-screen").style.display = "flex";
 
-    submitBtn.onsubmit = function (e) {
+    const form = document.getElementById("submitScoreForm");
+
+    form.onsubmit = function (e) {
         e.preventDefault();
-        const name = playerName.value.trim();
-        const email = playerEmail.value.trim();
 
-        if (!name || score <= 0) return alert("Enter your name and earn a score!");
+        const name = document.getElementById("playerName").value.trim();
+        const email = document.getElementById("playerEmail").value.trim();
+        const score = finalScore;
+
+        if (!name || score <= 0) {
+            alert("Please enter your name and earn a score!");
+            return;
+        }
 
         const leaderboard = JSON.parse(localStorage.getItem("submittedScores") || "[]");
         const exists = leaderboard.find(entry => entry.name === name && entry.score === score);
-        if (exists) return alert("Score already submitted!");
+        if (exists) {
+            alert("Score already submitted!");
+            return;
+        }
 
         const createdAt = new Date().toISOString();
+
         fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, score, createdAt })
         })
             .then(res => res.json())
-            .then(data => {
+            .then(() => {
                 leaderboard.push({ name, score });
                 localStorage.setItem("submittedScores", JSON.stringify(leaderboard));
-                form.style.display = "none";
-                playerName.value = "";
-                playerEmail.value = "";
                 loadLeaderboard();
+                alert("Score submitted!");
             })
             .catch(err => {
                 alert("Error submitting score!");
@@ -197,12 +204,10 @@ function endGame() {
     };
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("restartBtn").addEventListener("click", () => {
-        document.getElementById("game-over-screen").style.display = "none";
-        resetGame();
-        startGame();
-    });
+document.getElementById("restartBtn").addEventListener("click", () => {
+    document.getElementById("game-over-screen").style.display = "none";
+    resetGame();
+    startGame();
 });
 
 function loadLeaderboard() {

@@ -210,9 +210,9 @@ body {
 }
 
 /* Instruction text is white and doesn't flash */
-.instruction-text h2 {
+.instruction-text {
     color: #ffffff;
-    margin-bottom: 0px;
+    margin: 2px 0;
     font-size: 18px;
     text-shadow: 1px 1px #000;
 }
@@ -226,7 +226,8 @@ body {
 
     50% {
         opacity: 0.3;
-    } }
+    } 
+}
 
 .leaderboard-container {
     width: 90%;
@@ -361,67 +362,47 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    background-color: rgba(38, 60, 73, 0.95);
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 15;
-    background-color: rgba(38, 60, 73, 0.97);
-    border-radius: inherit; 
+    z-index: 20;
 }
 
 .game-over-box {
-    background-color: #000;
-    border: 3px solid #e51f27;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 0 20px #00ffcc;
-    animation: rbbsec-border-flash 1.5s infinite alternate;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
 }
 
 .game-over-text {
     font-size: 64px;
     color: #e51f27;
-    text-shadow: 2px 2px #000, 0 0 6px #00ffcc;
-    margin-bottom: 20px;
+    text-shadow: 2px 2px #000;
+    font-family: 'VT323', monospace;
 }
 
 .blinking-cursor {
-    font-weight: bold;
-    font-size: 64px;
-    color: #0ff902;
-    animation: blink 0.8s infinite;
+    animation: blink 1s step-start infinite;
 }
 
 @keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
     50% {
         opacity: 0;
     }
 }
 
 .restart-button {
-    margin-top: 20px;
-    padding: 10px 20px;
     background-color: #e51f27;
     color: white;
     border: none;
     border-radius: 6px;
     font-family: 'VT323', monospace;
     font-size: 20px;
+    padding: 10px 20px;
     cursor: pointer;
-    box-shadow: 0 0 10px #00ffcc;
-}
-
-.restart-button:hover {
-    background-color: #c01c21;
 }
