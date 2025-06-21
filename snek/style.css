@@ -213,6 +213,7 @@ body {
 /* Only the "READY PLAYER 1" text flashes */
 .ready-text {
     color: #0ff902;
+    font-size: 48px;
     animation: flash 1s infinite;
 }
 
