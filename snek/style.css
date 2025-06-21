@@ -214,7 +214,7 @@ body {
     margin: 2px;
     font-size: 18px;
     text-shadow: 1px 1px #000;
-    line-height: 1.2;
+    line-height: 0.2;
 }
 
 @keyframes flash {
