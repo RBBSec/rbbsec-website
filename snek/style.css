@@ -231,7 +231,16 @@ body {
     border-radius: 15px;
     font-family: 'VT323', monospace;
     text-align: center;
-    box-shadow: 0 0 20px #e51f27;
+}
+
+@keyframes flash-border {
+    0% {
+        box-shadow: 0 0 10px #e51f27;
+    }
+
+    100% {
+        box-shadow: 0 0 20px #00ffcc;
+    }
 }
 
 .leaderboard-title {
