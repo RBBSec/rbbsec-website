@@ -212,7 +212,7 @@ body {
 /* Instruction text is white and doesn't flash */
 .instruction-text h2 {
     color: #ffffff;
-    margin: 10px;
+    margin-bottom: 0px;
     font-size: 18px;
     text-shadow: 1px 1px #000;
 }
