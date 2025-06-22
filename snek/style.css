@@ -290,18 +290,30 @@ body {
     } }
 
 .footer {
-    width: 100%;
     background: #d32634;
+    color: #ffffff;
+    font-family: 'VT323', monospace;
     padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .footer a {
-    color: #ffffff;
-    font-family: 'VT323', monospace;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
 }
+
+.footer .socials {
+    margin-top: 5px;
+}
+
+.footer .socials a i {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.footer .socials a:hover i {
+    transform: scale(1.2);   }
 
 .score-form-container {
     background-color: #263c49;
