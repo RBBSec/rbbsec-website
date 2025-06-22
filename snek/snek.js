@@ -14,7 +14,6 @@ const gameOverSound = new Audio("assets/sounds/gameover.mp3");
 
 let soundEnabled = true;
 
-
 // Game settings
 const gridSize = 20;
 let snake = [{ x: 10, y: 10 }];
@@ -192,7 +191,7 @@ function endGame() {
 
     const form = document.getElementById("submitScoreForm");
 
-    form.onsubmit = function (e) {
+    form.onsubmit = async function (e) {
         e.preventDefault();
 
         const name = document.getElementById("playerName").value.trim();
@@ -204,31 +203,19 @@ function endGame() {
             return;
         }
 
-        const leaderboard = JSON.parse(localStorage.getItem("submittedScores") || "[]");
-        const exists = leaderboard.find(entry => entry.name === name && entry.score === score);
-        if (exists) {
-            alert("Score already submitted!");
-            return;
-        }
-
-        const createdAt = new Date().toISOString();
-
-        fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, score, createdAt })
-        })
-            .then(res => res.json())
-            .then(() => {
-                leaderboard.push({ name, score });
-                localStorage.setItem("submittedScores", JSON.stringify(leaderboard));
-                loadLeaderboard();
-                alert("Score submitted!");
-            })
-            .catch(err => {
-                alert("Error submitting score!");
-                console.error(err);
+        try {
+            await window.firebase.addDoc(window.firebase.scoresRef, {
+                name: name,
+                email: email,
+                score: score,
+                createdAt: new Date()
             });
+            alert("Score submitted!");
+            loadLeaderboard(); // refresh with latest data
+        } catch (err) {
+            console.error("Firebase submission error:", err);
+            alert("Error submitting score!");
+        }
     };
 }
 
@@ -238,20 +225,33 @@ document.getElementById("restartBtn").addEventListener("click", () => {
     startGame();
 });
 
-function loadLeaderboard() {
-    fetch("https://685609b41789e182b37cefd6.mockapi.io/leaderboard?sortBy=score&order=desc")
-        .then(res => res.json())
-        .then(data => {
-            const leaderboardElement = document.getElementById('leaderboard');
-            leaderboardElement.innerHTML = data.slice(0, 10).map((entry, i) => `
+async function loadLeaderboard() {
+    try {
+        const q = window.firebase.query(
+            window.firebase.scoresRef,
+            window.firebase.orderBy("score", "desc"),
+            window.firebase.limit(10)
+        );
+
+        const snapshot = await window.firebase.getDocs(q);
+
+        const leaderboardElement = document.getElementById("leaderboard");
+        leaderboardElement.innerHTML = "";
+
+        let rank = 1;
+        snapshot.forEach(doc => {
+            const entry = doc.data();
+            leaderboardElement.innerHTML += `
                 <tr>
-                    <td>${i + 1}</td>
+                    <td>${rank++}</td>
                     <td>${entry.name.toUpperCase()}</td>
                     <td>${entry.score}</td>
                 </tr>
-            `).join('');
-        })
-        .catch(err => console.error("Error loading leaderboard:", err));
+            `;
+        });
+    } catch (err) {
+        console.error("Error loading leaderboard:", err);
+    }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
