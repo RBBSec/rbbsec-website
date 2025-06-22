@@ -453,3 +453,41 @@ body {
     cursor: pointer;
     text-shadow: 1px 1px #000;
 }
+
+.credits-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    padding: 10px 0;
+    z-index: 999;
+    color: #0ff902;
+}
+
+.credits-banner-inner {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollBanner 20s linear infinite;
+}
+
+.credits-banner-inner:hover {
+    animation-play-state: paused; 
+}
+
+.credits-banner a {
+    color: #0ff902;
+    text-decoration: underline;
+}
+
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
