@@ -226,3 +226,10 @@ function loadLeaderboard() {
 }
 
 window.addEventListener("DOMContentLoaded", loadLeaderboard);
+
+document.querySelectorAll(".mobile-controls .arrow").forEach(button => {
+    button.addEventListener("click", () => {
+        const direction = button.getAttribute("data-direction");
+        setDirection(direction);
+    });
+});

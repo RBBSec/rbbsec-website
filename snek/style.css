@@ -401,3 +401,29 @@ body {
     cursor: pointer;
     text-shadow: 2px 2px #000;
 }
+
+.mobile-controls {
+    margin-top: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-controls button {
+    font-size: 24px;
+    padding: 10px 15px;
+    font-family: 'VT323', monospace;
+    background-color: #e51f27;
+    color: white;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px #000;
+}
+
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
+}
