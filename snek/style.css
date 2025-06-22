@@ -1,31 +1,7 @@
-@media (max-width: 768px) {
-    #logo {
-        width: 200px;
-    }
-
-    .intro-text {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    .snake-game {
-        font-size: 40px;
-    }
-
-    .ready-text {
-        font-size: 28px;
-    }
-
-    .instruction-text {
-        font-size: 16px;
-        margin: 2px;
-    }
-
-    .score-label,
-    #score,
-    #highScore {
-        font-size: 20px;
-    }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
@@ -43,16 +19,6 @@ body {
 html {
     height: auto;
     overflow-y: auto;
-}
-
-.game-container,
-.intro-text,
-.leaderboard-container,
-.footer-content {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .top-banner {
@@ -574,9 +540,9 @@ html {
 }
 
 .credits-bar a:hover {
-    color: #0ff902; }
+    color: #0ff902; 
+}
 
-/* Medium screens: tablets */
 @media (max-width: 768px) {
     #logo {
         width: 200px;
@@ -611,13 +577,16 @@ html {
     }
 
     .game-container {
-        padding: 30px 20px;
-        max-width: 95vw;
+        width: 100%;
+        max-width: 100vw;
+        margin: 0 auto;
+        overflow: hidden;
     }
 
     #game-board {
         width: 90vw;
-        max-width: 350px;
+        max-width: 90vw;
+        margin: 0 auto;
     }
 
     .score-form-container {
@@ -628,64 +597,15 @@ html {
         flex-direction: column;
         gap: 5px;
     }
+
+    .mobile-controls {
+        display: flex;
+    }
 }
 
-/* Small screens: phones */
-@media (max-width: 480px) {
-    #logo {
-        width: 160px;
-    }
-
-    .intro-text {
-        font-size: 16px;
-    }
-
-    .snake-game {
-        font-size: 36px;
-    }
-
-    .snake-game img {
-        height: 30px;
-    }
-
-    .ready-text {
-        font-size: 22px;
-    }
-
-    .instruction-text {
-        font-size: 14px;
-    }
-
-    .score-label,
-    #score,
-    #highScore {
-        font-size: 18px;
-    }
-
-    .game-container {
-        padding: 45px 25px;
-        max-width: 98vw;
-    }
-
-    #game-board {
-        width: 92vw;
-        max-width: 320px;
-    }
-
-    .score-form-container {
-        width: 95%;
-    }
-
-    .restart-button,
-    .start-button,
-    .sound-toggle {
-        font-size: 16px;
-        padding: 8px 15px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
+.intro-text,
+.leaderboard-container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
