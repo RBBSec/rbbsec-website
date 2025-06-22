@@ -302,7 +302,7 @@ html {
     padding-top: 10px;
     padding-bottom: 20px;
     width: 300px;
-    margin: 0;
+    margin-bottom: 15px;
     font-family: 'VT323', monospace;
     text-align: center;
 }
@@ -371,6 +371,8 @@ html {
     color: #e51f27;
     text-shadow: 2px 2px #000;
     font-family: 'VT323', monospace;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .blinking-cursor {
