@@ -6,6 +6,14 @@ const scoreElement = document.getElementById('score');
 const highScoreElement = document.getElementById('highScore');
 const gameOverScreen = document.getElementById("game-over-screen");
 const submitBtn = document.getElementById("submitScoreForm");
+const bgMusic = new Audio("assets/sounds/bg_music.mp3");
+bgMusic.loop = true;
+
+const eatSound = new Audio("assets/sounds/eat.mp3");
+const gameOverSound = new Audio("assets/sounds/gameover.mp3");
+
+let soundEnabled = true;
+
 
 // Game settings
 const gridSize = 20;
@@ -27,12 +35,15 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+let finalScore = 0;
+
 // Start the game
 function startGame() {
     gameRunning = true;
     splashScreen.style.display = 'none';
     gameOverScreen.style.display = 'none';
     gameInterval = setInterval(gameLoop, gameSpeed);
+    if (soundEnabled) bgMusic.play();
 }
 
 // Game loop
@@ -72,6 +83,7 @@ function moveSnake() {
     snake.unshift(head);
 
     if (head.x === food.x && head.y === food.y) {
+        if (soundEnabled) eatSound.play();
         increaseSpeed();
     } else {
         snake.pop();
@@ -168,6 +180,12 @@ function endGame() {
     finalScore = snake.length - 1;
     document.getElementById("game-over-screen").style.display = "flex";
 
+    if (soundEnabled) {
+        gameOverSound.play();
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+    }
+
     const form = document.getElementById("submitScoreForm");
 
     form.onsubmit = function (e) {
@@ -232,17 +250,29 @@ function loadLeaderboard() {
         .catch(err => console.error("Error loading leaderboard:", err));
 }
 
-window.addEventListener("DOMContentLoaded", loadLeaderboard);
-
 window.addEventListener("DOMContentLoaded", () => {
+    loadLeaderboard();
+
     document.getElementById("startGameBtn").addEventListener("click", () => {
         if (!gameRunning) startGame();
     });
-});
 
-document.querySelectorAll(".mobile-controls .arrow").forEach(button => {
-    button.addEventListener("click", () => {
-        const direction = button.getAttribute("data-direction");
-        setDirection(direction);
+    document.querySelectorAll(".mobile-controls .arrow").forEach(button => {
+        button.addEventListener("click", () => {
+            const direction = button.getAttribute("data-direction");
+            setDirection(direction);
+        });
+    });
+
+    document.getElementById("toggle-sound").addEventListener("click", () => {
+        soundEnabled = !soundEnabled;
+        const btn = document.getElementById("toggle-sound");
+        btn.textContent = soundEnabled ? "🔊 Sound: ON" : "🔇 Sound: OFF";
+
+        if (!soundEnabled) {
+            bgMusic.pause();
+        } else if (gameRunning) {
+            bgMusic.play();
+        }
     });
 });

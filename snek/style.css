@@ -441,3 +441,15 @@ body {
         display: flex;
     }   
 }
+
+.sound-toggle {
+    font-family: 'VT323', monospace;
+    background: #e51f27;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px #000;
+}
