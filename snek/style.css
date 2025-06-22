@@ -1,15 +1,13 @@
 body {
-    background-color: #263c49; /* Dark Teal (retro background) */
+    background-color: #263c49;
+    font-family: 'VT323', monospace;
+    color: #d4cfd0;
+    position: relative;
+    image-rendering: pixelated;
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'VT323', monospace;
-    color: #d4cfd0; /* Warm Light Grey for retro text */
-    position: relative;
-    image-rendering: pixelated; /* Retro pixelated effect */
 }
 
 .game-container,
