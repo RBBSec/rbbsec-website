@@ -2,117 +2,122 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
     <title>Red Bellied Black Sec - Coming Soon</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="snek.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
+    <div class="main-wrapper">
+        <div class="top-banner">
+            🚧 We're launching soon! Stay tuned for updates. 🚧
+        </div>
 
-    <div class="top-banner">
-        🚧 We're launching soon! Stay tuned for updates. 🚧
-    </div>
+        <nav class="navbar">
+            <img id="logo" src="rbbsec_logo_2025.png" alt="RBBSec Logo" />
+        </nav>
 
-    <nav class="navbar">
-        <img id="logo" src="rbbsec_logo_2025.png" alt="RBBSec Logo">
-    </nav>
+        <div class="intro-text">
+            <p>
+                <b>!! Red Bellied Black Sec is coming soon !!</b><br />
+                In the meantime, play a game of snake, catch the hackers, beat the high scores.<br />
+                Join our leaderboard, leave your email and join our mailing list, the top 3 winners will receive a
+                T-Shirt on launch!
+            </p>
+        </div>
 
-    <div class="intro-text">
-        <p><b>!! Red Bellied Black Sec is coming soon !!</b>
-        <br>In the meantime, play a game of snake, catch the hackers, beat the high scores. 
-        <br>Join our leaderboard, leave your email and join our mailing list, the top 3 winners will receive a T-Shirt on launch!</p>
-    </div>
+        <button id="toggle-sound" class="sound-toggle">🔊 Sound: ON</button>
 
-    <button id="toggle-sound" class="sound-toggle">🔊 Sound: ON</button>
-
-    <div class="game-container">
-        <div class="game-wrapper">
-            
-            <div class="scores">
-                <div class="score-block">
-                    <div class="score-label">1UP</div>
-                    <h1 id="score">000</h1>
+        <div class="game-container">
+            <div class="game-wrapper">
+                <div class="scores">
+                    <div class="score-block">
+                        <div class="score-label">1UP</div>
+                        <h1 id="score">000</h1>
+                    </div>
+                    <div class="score-block">
+                        <div class="score-label">HIGH SCORE</div>
+                        <h1 id="highScore">000</h1>
+                    </div>
                 </div>
-                <div class="score-block">
-                    <div class="score-label">HIGH SCORE</div>
-                    <h1 id="highScore">000</h1>
-                </div>        
-            </div>
 
-            <div class="game-border-1">
-                <div class="game-border-2">
-                    <div class="game-border-3">
-                        <div id="game-board"></div>
+                <div class="game-border-1">
+                    <div class="game-border-2">
+                        <div class="game-border-3">
+                            <div id="game-board"></div>
 
-                            <!-- Splash screen for intro -->
+                            <!-- Splash screen -->
                             <div id="splash-screen">
-                                <h1 class="snake-game"><img src="snake_pix.png"/> Snake Game <img src="snake_pix.png" /></h1>
+                                <h1 class="snake-game">
+                                    <img src="snake_pix.png" /> Snake Game <img src="snake_pix.png" />
+                                </h1>
                                 <h1 class="ready-text">READY PLAYER ONE</h1>
                                 <div class="leaderboard-footer">CREDIT 1</div>
                                 <h2 class="instruction-text">1. Press spacebar to begin game.</h2>
                                 <h2 class="instruction-text">2. Use arrow keys to control your snake!</h2>
                                 <h2 class="instruction-text">!! GOOD HUNTING !!</h2>
                             </div>
-                            
-                            <!-- GAME OVER SCREEN -->
+
+                            <!-- Game Over -->
                             <div id="game-over-screen" class="game-over-screen" style="display: none;">
                                 <div class="game-over-box">
                                     <h1 class="game-over-text">
                                         GAME OVER<span class="blinking-cursor">_</span>
                                     </h1>
-
                                     <div class="score-form-container">
                                         <h2>🎮 Submit Your Score</h2>
                                         <form id="submitScoreForm">
-                                            <input type="text" id="playerName" placeholder="Enter your name" required maxlength="20" />
-                                            <input type="email" id="playerEmail" placeholder="Enter your email to win (optional)" maxlength="100" />
+                                            <input type="text" id="playerName" placeholder="Enter your name" required
+                                                maxlength="20" />
+                                            <input type="email" id="playerEmail"
+                                                placeholder="Enter your email to win (optional)" maxlength="100" />
                                             <button type="submit">Upload Score</button>
                                         </form>
                                     </div>
-
                                     <button id="restartBtn" class="restart-button">PLAY AGAIN?</button>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="mobile-controls">
-        <button class="arrow" data-direction="UP">⬆️</button>
-        <div>
-            <button class="arrow" data-direction="LEFT">⬅️</button>
-            <button id="startGameBtn">▶️</button>
-            <button class="arrow" data-direction="RIGHT">➡️</button>
+        <div class="mobile-controls">
+            <button class="arrow" data-direction="UP">⬆️</button>
+            <div>
+                <button class="arrow" data-direction="LEFT">⬅️</button>
+                <button id="startGameBtn">▶️</button>
+                <button class="arrow" data-direction="RIGHT">➡️</button>
+            </div>
+            <button class="arrow" data-direction="DOWN">⬇️</button>
         </div>
-        <button class="arrow" data-direction="DOWN">⬇️</button>
+
+        <div class="leaderboard-container">
+            <h2 class="leaderboard-title">🏆 TOP 10 HUNTERS 🏆</h2>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>RANK</th>
+                        <th>NAME</th>
+                        <th>SCORE</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard">
+                    <!-- JS populates rows -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="leaderboard-container">
-    <h2 class="leaderboard-title">🏆 TOP 10 HUNTERS 🏆</h2>
-    <table class="leaderboard-table">
-        <thead>
-        <tr>
-            <th>RANK</th>
-            <th>NAME</th>
-            <th>SCORE</th>
-        </tr>
-        </thead>
-        <tbody id="leaderboard">
-        <!-- Rows populated by JS -->
-        </tbody>
-    </table>
-    </div>
-
+    <!-- FOOTER outside .main-wrapper -->
     <div class="footer-wrapper">
         <div class="footer">
             <div class="footer-content">
@@ -122,21 +127,19 @@
                     <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://bsky.app" target="_blank"><i class="fa-solid fa-cloud"></i></a>
                 </div>
-            </div>    
-        </div>
-    
-        <div class="credits-bar">
-            <div class="scrolling-text">
-                | 🎵 BG Snake Music by Zuka
-                <a href="https://www.youtube.com/watch?v=FpDWpX9luCQ" target="_blank">
-                    The Snake Game (original GB music)</a>
-                 | Competition Rules: 1. stuff 2. more stuff |
             </div>
         </div>
     </div>
-      
 
-
+    <!-- CREDITS BAR -->
+    <div class="credits-bar">
+        <div class="scrolling-text">
+            | 🎵 BG Snake Music by Zuka
+            <a href="https://www.youtube.com/watch?v=FpDWpX9luCQ" target="_blank">
+                The Snake Game (original GB music)</a>
+            | Competition Rules: 1. stuff 2. more stuff |
+        </div>
+    </div>
 </body>
 
 </html>
