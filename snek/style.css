@@ -307,7 +307,8 @@ body {
 
 .score-form-container {
     background-color: #263c49;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     width: 300px;
     margin: 0;
     font-family: 'VT323', monospace;
