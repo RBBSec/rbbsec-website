@@ -308,15 +308,11 @@ body {
 
 .score-form-container {
     background-color: #000;
-    color: #0ff902;
-    border: 2px solid #0ff902;
-    border-radius: 10px;
     padding: 20px;
     width: 300px;
     margin: 20px auto;
     font-family: 'VT323', monospace;
     text-align: center;
-    animation: flash-border 1s infinite alternate;
 }
 
 .score-form-container h2 {
@@ -375,7 +371,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
     padding: 20px;
 }
 
@@ -405,4 +400,5 @@ body {
     font-size: 20px;
     padding: 10px 20px;
     cursor: pointer;
+    text-shadow: 2px 2px #000;
 }
