@@ -286,4 +286,30 @@ window.addEventListener("DOMContentLoaded", () => {
             bgMusic.play();
         }
     });
+
+    // Swipe Controls for Mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const gameBoard = document.getElementById("game-board");
+
+    gameBoard.addEventListener("touchstart", (e) => {
+        const touch = e.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+    }, { passive: true });
+
+    gameBoard.addEventListener("touchend", (e) => {
+        const touch = e.changedTouches[0];
+        const deltaX = touch.clientX - touchStartX;
+        const deltaY = touch.clientY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX > 20) setDirection("RIGHT");
+            else if (deltaX < -20) setDirection("LEFT");
+        } else {
+            if (deltaY > 20) setDirection("DOWN");
+            else if (deltaY < -20) setDirection("UP");
+        }
+    }, { passive: true });
 });
