@@ -476,9 +476,17 @@ html {
     padding: 5px 15px;
     border: none;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    /* centre it */
     cursor: pointer;
     text-shadow: 1px 1px #000;
+    width: auto;
+    /* ensure it only fits its content */
+    display: block;
+    /* ensures margin auto works */
+    max-width: 200px;
+    /* optional: prevents it from growing too wide */
+    text-align: center;
 }
 
 .footer-wrapper {
