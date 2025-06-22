@@ -416,27 +416,28 @@ body {
     cursor: pointer; }
 
 .mobile-controls {
-    margin-top: 20px;
     display: none;
     flex-direction: column;
     align-items: center;
+    margin: 20px 0;
     gap: 10px;
 }
 
 .mobile-controls button {
     font-size: 24px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-family: 'VT323', monospace;
     background-color: #e51f27;
     color: white;
-    border: 2px solid #00ffcc;
-    border-radius: 10px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    text-shadow: 1px 1px #000;
+    box-shadow: 0 0 5px #00ffcc;
 }
 
+/* Show controls on smaller screens */
 @media (max-width: 768px) {
     .mobile-controls {
         display: flex;
-    }
+    }   
 }

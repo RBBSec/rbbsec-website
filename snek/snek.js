@@ -45,14 +45,21 @@ function gameLoop() {
     draw();
 }
 
-function setDirection(key) {
+function setDirection(input) {
     const directions = {
         'ArrowUp': 'UP',
         'ArrowDown': 'DOWN',
         'ArrowLeft': 'LEFT',
-        'ArrowRight': 'RIGHT'
+        'ArrowRight': 'RIGHT',
+        'UP': 'UP',
+        'DOWN': 'DOWN',
+        'LEFT': 'LEFT',
+        'RIGHT': 'RIGHT'
     };
-    if (directions[key]) direction = directions[key];
+
+    if (directions[input]) {
+        direction = directions[input];
+    }
 }
 
 function moveSnake() {
@@ -227,8 +234,10 @@ function loadLeaderboard() {
 
 window.addEventListener("DOMContentLoaded", loadLeaderboard);
 
-document.getElementById("startGameBtn").addEventListener("click", () => {
-    if (!gameRunning) startGame();
+window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("startGameBtn").addEventListener("click", () => {
+        if (!gameRunning) startGame();
+    });
 });
 
 document.querySelectorAll(".mobile-controls .arrow").forEach(button => {
