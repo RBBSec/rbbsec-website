@@ -12,6 +12,16 @@ body {
     image-rendering: pixelated; /* Retro pixelated effect */
 }
 
+.game-container,
+.intro-text,
+.leaderboard-container,
+.footer-content {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .top-banner {
     width: 100%;
     background-color: #e51f27;
