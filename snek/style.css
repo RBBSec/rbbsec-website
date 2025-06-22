@@ -575,3 +575,117 @@ html {
 
 .credits-bar a:hover {
     color: #0ff902; }
+
+/* Medium screens: tablets */
+@media (max-width: 768px) {
+    #logo {
+        width: 200px;
+    }
+
+    .intro-text {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .snake-game {
+        font-size: 50px;
+    }
+
+    .snake-game img {
+        height: 40px;
+    }
+
+    .ready-text {
+        font-size: 28px;
+    }
+
+    .instruction-text {
+        font-size: 16px;
+        margin: 3px;
+    }
+
+    .score-label,
+    #score,
+    #highScore {
+        font-size: 22px;
+    }
+
+    .game-container {
+        padding: 30px 20px;
+        max-width: 95vw;
+    }
+
+    #game-board {
+        width: 90vw;
+        max-width: 350px;
+    }
+
+    .score-form-container {
+        width: 90%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Small screens: phones */
+@media (max-width: 480px) {
+    #logo {
+        width: 160px;
+    }
+
+    .intro-text {
+        font-size: 16px;
+    }
+
+    .snake-game {
+        font-size: 36px;
+    }
+
+    .snake-game img {
+        height: 30px;
+    }
+
+    .ready-text {
+        font-size: 22px;
+    }
+
+    .instruction-text {
+        font-size: 14px;
+    }
+
+    .score-label,
+    #score,
+    #highScore {
+        font-size: 18px;
+    }
+
+    .game-container {
+        padding: 45px 25px;
+        max-width: 98vw;
+    }
+
+    #game-board {
+        width: 92vw;
+        max-width: 320px;
+    }
+
+    .score-form-container {
+        width: 95%;
+    }
+
+    .restart-button,
+    .start-button,
+    .sound-toggle {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+}
