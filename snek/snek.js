@@ -227,6 +227,10 @@ function loadLeaderboard() {
 
 window.addEventListener("DOMContentLoaded", loadLeaderboard);
 
+document.getElementById("startGameBtn").addEventListener("click", () => {
+    if (!gameRunning) startGame();
+});
+
 document.querySelectorAll(".mobile-controls .arrow").forEach(button => {
     button.addEventListener("click", () => {
         const direction = button.getAttribute("data-direction");
