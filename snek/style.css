@@ -41,11 +41,9 @@ body {
 
 .intro-text {
     max-width: 700px;
-    margin: 10px auto 10px auto;
     /* Top spacing under navbar/logo */
     text-align: center;
     font-size: 22px;
-    padding: 20px 20px;
     color: #d4cfd0;
     /* Warm Light Grey */
     font-family: 'VT323', monospace;
