@@ -289,32 +289,6 @@ body {
         opacity: 0.3;
     } }
 
-.footer {
-    background: #d32634;
-    color: #ffffff;
-    font-family: 'VT323', monospace;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-.footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.footer .socials {
-    margin-top: 5px;
-}
-
-.footer .socials a i {
-    font-size: 24px;
-    transition: transform 0.2s ease;
-}
-
-.footer .socials a:hover i {
-    transform: scale(1.2);   }
-
 .score-form-container {
     background-color: #263c49;
     padding-top: 10px;
@@ -464,40 +438,71 @@ body {
     text-shadow: 1px 1px #000;
 }
 
-.credits-banner {
-    position: fixed;
-    bottom: 0;
+.footer-wrapper {
     width: 100%;
-    overflow: hidden;
-    background-color: #000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background: #d32634;
+    color: white;
     font-family: 'VT323', monospace;
-    font-size: 18px;
-    padding: 10px 0;
-    z-index: 999;
-    color: #0ff902;
+    padding: 10px 20px;
+    text-align: center;
 }
 
-.credits-banner-inner {
-    display: inline-block;
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer .socials {
+    margin-top: 5px;
+}
+
+.footer .socials a i {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+.footer .socials a:hover i {
+    transform: scale(1.2);
+}
+
+.credits-bar {
+    background: black;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    padding: 5px 0;
+    overflow: hidden;
     white-space: nowrap;
-    animation: scrollBanner 20s linear infinite;
+    position: relative;
 }
 
-.credits-banner-inner:hover {
-    animation-play-state: paused; 
+.scrolling-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 15s linear infinite;
 }
 
-.credits-banner a {
-    color: #0ff902;
-    text-decoration: underline;
-}
-
-@keyframes scrollBanner {
+@keyframes scroll-left {
     0% {
-        transform: translateX(100%);
+        transform: translateX(0%);
     }
 
     100% {
         transform: translateX(-100%);
     }
 }
+
+.credits-bar a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+.credits-bar a:hover {
+    color: #0ff902; }
