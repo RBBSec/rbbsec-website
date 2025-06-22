@@ -1,3 +1,10 @@
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app-check.js";
+
+const appCheck = initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider('6LfQaWkrAAAAAJWnZNtOSNpAlKv3DAvnTU6M78YH'),
+    isTokenAutoRefreshEnabled: true,
+});
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import {
     getFirestore,
