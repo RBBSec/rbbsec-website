@@ -43,8 +43,12 @@ function startGame() {
     splashScreen.style.display = 'none';
     gameOverScreen.style.display = 'none';
     gameInterval = setInterval(gameLoop, gameSpeed);
+
+    // Scroll game container into view (use smooth scroll)
+    document.querySelector('.game-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
     if (soundEnabled) bgMusic.play();
-}
+} 
 
 // Game loop
 function gameLoop() {
@@ -252,6 +256,13 @@ function loadLeaderboard() {
 
 window.addEventListener("DOMContentLoaded", () => {
     loadLeaderboard();
+
+    // Prevent spacebar from scrolling the page
+    window.addEventListener("keydown", (e) => {
+        if (e.code === "Space" || e.keyCode === 32) {
+            e.preventDefault();
+        }
+    });
 
     document.getElementById("startGameBtn").addEventListener("click", () => {
         if (!gameRunning) startGame();
