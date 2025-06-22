@@ -212,8 +212,8 @@ body {
 /* Instruction text is white and doesn't flash */
 .instruction-text {
     color: #ffffff;
-    margin: 15px;
-    font-size: 26px;
+    margin: 5px;
+    font-size: 24px;
     text-shadow: 1px 1px #000;
 }
 
@@ -269,7 +269,7 @@ body {
 
 .leaderboard-footer {
     margin: 15px;
-    font-size: 24px;
+    font-size: 28px;
     letter-spacing: 2px;
     color: #ffffff;
     text-shadow: 0 0 2px #ffffff;
