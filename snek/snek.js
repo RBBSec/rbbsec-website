@@ -31,7 +31,6 @@ document.addEventListener('keydown', (e) => {
 function startGame() {
     gameRunning = true;
     splashScreen.style.display = 'none';
-    logo.style.display = 'none';
     gameOverScreen.style.display = 'none';
     gameInterval = setInterval(gameLoop, gameSpeed);
 }
