@@ -37,12 +37,11 @@ body {
 
 #logo {
     width: 300px;
-    margin-bottom: 20px;
 }
 
 .intro-text {
     max-width: 700px;
-    margin: 60px auto 10px auto;
+    margin: 10px auto 10px auto;
     /* Top spacing under navbar/logo */
     text-align: center;
     font-size: 22px;
