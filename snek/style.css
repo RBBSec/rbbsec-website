@@ -42,8 +42,8 @@ html {
 
 .navbar {
     width: 100%;
-    background-color: #263c49;
-    /* RBBSec Dark Teal */
+    background-size: 600% 600%;
+    animation: neonPulse 15s ease infinite;
     padding: 10px 40px;
     display: flex;
     justify-content: center;
