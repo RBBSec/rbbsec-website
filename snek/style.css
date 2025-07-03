@@ -42,8 +42,9 @@ html {
 
 .navbar {
     width: 100%;
-    background-size: 600% 600%;
-    animation: neonPulse 15s ease infinite;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
     padding: 10px 40px;
     display: flex;
     justify-content: center;
