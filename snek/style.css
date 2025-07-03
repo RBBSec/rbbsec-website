@@ -5,7 +5,6 @@
 }
 
 body {
-    background-color: #263c49;
     font-family: 'VT323', monospace;
     color: #d4cfd0;
     position: relative;
@@ -13,6 +12,15 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(135deg, #263c49, #1b2d3a, #263c49);
+    background-size: 600% 600%;
+    animation: neonPulse 15s ease infinite;
+}
+
+@keyframes neonPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 html {
