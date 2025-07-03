@@ -248,7 +248,9 @@ html {
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #263c49;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
     color: #ffffff;
     font-family: 'VT323', monospace;
     text-align: center;
