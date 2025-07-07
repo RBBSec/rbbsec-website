@@ -294,12 +294,18 @@ window.addEventListener("DOMContentLoaded", () => {
     const gameBoard = document.getElementById("game-board");
 
     gameBoard.addEventListener("touchstart", (e) => {
+        e.preventDefault();
         const touch = e.touches[0];
         touchStartX = touch.clientX;
         touchStartY = touch.clientY;
-    }, { passive: true });
+    }, { passive: false });
+
+    gameBoard.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+    }, { passive: false });
 
     gameBoard.addEventListener("touchend", (e) => {
+        e.preventDefault();
         const touch = e.changedTouches[0];
         const deltaX = touch.clientX - touchStartX;
         const deltaY = touch.clientY - touchStartY;
@@ -311,5 +317,5 @@ window.addEventListener("DOMContentLoaded", () => {
             if (deltaY > 20) setDirection("DOWN");
             else if (deltaY < -20) setDirection("UP");
         }
-    }, { passive: true });
+    }, { passive: false });
 });
