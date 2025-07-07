@@ -412,6 +412,7 @@ html {
     font-family: 'VT323', monospace;
     font-size: 20px;
     padding: 10px 20px;
+    margin-bottom: 20px;
     cursor: pointer;
     text-shadow: 2px 2px #000;
 }
