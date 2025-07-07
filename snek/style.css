@@ -123,6 +123,7 @@ html {
 .game-border-3 {
     border: 5px solid #5e727d; /* Darker muted teal inner border */
     border-radius: 12px;
+    position: relative;
 }
 
 .snake {
@@ -200,6 +201,7 @@ html {
     z-index: 10;
     text-align: center;
     font-family: 'VT323', monospace;
+    border-radius: 8px;
 }
 
 .snake-game {
