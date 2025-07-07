@@ -82,6 +82,7 @@ html {
     animation: rbbsec-border-flash 1.5s infinite alternate;
     box-sizing: border-box;
     margin: 0 auto;
+    max-width: 600px;
 }
 
 @keyframes rbbsec-border-flash {
