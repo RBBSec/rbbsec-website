@@ -83,6 +83,7 @@ html {
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 600px;
+    position: relative;
 }
 
 @keyframes rbbsec-border-flash {
@@ -106,14 +107,14 @@ html {
     max-width: 400px;
     aspect-ratio: 1 / 1;
     border-radius: 8px;
-    margin: 5px auto;
+    /*margin: 5px auto;*/
     align-items: center;
     position: relative;
 }
 
 .game-border-1 {
-    border: 10px solid #5e727d; /* Darker muted teal border */
-    border-radius: 20px;
+    /*border: 10px solid #5e727d; !* Darker muted teal border *!*/
+    /*border-radius: 20px;*/
 }
 
 .game-border-2 {
@@ -123,7 +124,7 @@ html {
 
 .game-border-3 {
     border: 5px solid #5e727d; /* Darker muted teal inner border */
-    border-radius: 12px;
+    border-radius: 10px;
     position: relative;
 }
 
@@ -191,8 +192,8 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background-color: rgba(38, 60, 73, 0.95);
     /* Dark Teal overlay */
     display: flex;
@@ -202,7 +203,9 @@ html {
     z-index: 10;
     text-align: center;
     font-family: 'VT323', monospace;
-    border-radius: 8px;
+    border-radius: 15px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .snake-game {
