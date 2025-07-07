@@ -29,7 +29,8 @@ draw();
 document.addEventListener('keydown', (e) => {
     if (!gameRunning && e.code === 'Space') {
         startGame();
-    } else {
+    } else if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault(); // Prevent arrow keys from scrolling the page
         setDirection(e.key);
     }
 });
