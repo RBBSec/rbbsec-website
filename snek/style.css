@@ -115,6 +115,7 @@ html {
 .game-border-1 {
     /*border: 10px solid #5e727d; !* Darker muted teal border *!*/
     /*border-radius: 20px;*/
+    padding: 10px;
 }
 
 .game-border-2 {
@@ -158,7 +159,8 @@ html {
 
 .scores {
     position: absolute;
-    top: -40px;
+    top: -50px;
+    margin-top: 10px;
     /* raise it higher if needed */
     width: 100%;
     display: flex;
@@ -170,13 +172,14 @@ html {
 
 .score-block {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .score-label {
     font-size: 16px;
     color: #e51f27;
     letter-spacing: 1px;
-    margin-bottom: -5px;
+    margin-bottom: -10px;
     text-shadow: 1px 1px #000;
 }
 
@@ -184,7 +187,7 @@ html {
 #highScore {
     font-size: 32px;
     color: #ffffff;
-    margin: 0;
+    margin: 10px;
     text-shadow: 1px 1px #000; 
 }
 
