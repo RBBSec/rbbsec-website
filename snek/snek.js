@@ -264,7 +264,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.getElementById("startGameBtn").addEventListener("click", () => {
+    splashScreen.addEventListener("click", () => {
         if (!gameRunning) startGame();
     });
 
