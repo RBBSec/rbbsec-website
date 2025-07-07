@@ -151,8 +151,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
-    height: fit-content; 
+    width: 400px;
+    height: 400px;
 }
 
 .scores {
@@ -586,6 +586,13 @@ html {
 
     .mobile-controls {
         display: flex;
+    }
+
+    .game-wrapper {
+        width: 90vw;
+        max-width: 90vw;
+        height: 90vw;
+        max-height: 90vw;
     }
 }
 
