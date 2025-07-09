@@ -259,12 +259,11 @@ html {
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    font-size: 24px;
 }
 
 .leaderboard-title {
     color: #00ff00;
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 15px;
     text-shadow: 1px 1px #000;
 }
@@ -276,7 +275,7 @@ html {
 
 .leaderboard-table th,
 .leaderboard-table td {
-    font-size: 20px;
+    font-size: 16px;
     padding: 8px;
     color: #ffffff;
 }
@@ -480,7 +479,7 @@ html {
     font-family: "Press Start 2P", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
+    font-size: 8px;
     padding: 5px 0;
     overflow: hidden;
     white-space: nowrap;
