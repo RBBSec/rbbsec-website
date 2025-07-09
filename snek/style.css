@@ -113,8 +113,6 @@ html {
 }
 
 .game-border-1 {
-    /*border: 10px solid #5e727d; !* Darker muted teal border *!*/
-    /*border-radius: 20px;*/
     padding: 10px;
 }
 
@@ -153,8 +151,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
 }
 
 .scores {
@@ -197,8 +195,10 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(38, 60, 73, 0.95);
-    /* Dark Teal overlay */
+    background-image: url('assets/test.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -299,22 +299,7 @@ html {
     text-shadow: 0 0 2px #ffffff;
 }
 
-.snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    font-size: 10px;
-    user-select: none;
-    z-index: 1;
-    animation-name: fall;
-    animation-timing-function: linear;
-}
 
-@keyframes fall {
-    to {
-        transform: translateY(100vh);
-        opacity: 0.3;
-    } }
 
 .score-form-container {
     background-color: #263c49;
@@ -417,17 +402,7 @@ html {
     text-shadow: 2px 2px #000;
 }
 
-.start-button {
-    font-size: 24px;
-    padding: 12px 20px;
-    margin-bottom: 10px;
-    font-family: 'VT323', monospace;
-    background-color: #00ffcc;
-    color: #000;
-    border: 3px solid #e51f27;
-    border-radius: 10px;
-    text-shadow: 1px 1px #000;
-    cursor: pointer; }
+
 
 
 
@@ -569,19 +544,6 @@ html {
         font-size: 22px;
     }
 
-    .game-container {
-        width: 100%;
-        max-width: 100vw;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    #game-board {
-        width: 90vw;
-        max-width: 90vw;
-        margin: 0 auto;
-    }
-
     .score-form-container {
         width: 90%;
     }
@@ -589,17 +551,6 @@ html {
     .footer-content {
         flex-direction: column;
         gap: 5px;
-    }
-
-    .mobile-controls {
-        display: flex;
-    }
-
-    .game-wrapper {
-        width: 90vw;
-        max-width: 90vw;
-        height: 90vw;
-        max-height: 90vw;
     }
 }
 
