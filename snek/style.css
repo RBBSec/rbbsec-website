@@ -484,7 +484,9 @@ html {
 .credits-bar {
     background: black;
     color: #00ff00;
-    font-family: 'VT323', monospace;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
     font-size: 16px;
     padding: 5px 0;
     overflow: hidden;
