@@ -552,10 +552,3 @@ html {
         gap: 5px;
     }
 }
-
-.intro-text,
-.leaderboard-container {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
