@@ -242,10 +242,11 @@ async function loadLeaderboard() {
         let rank = 1;
         snapshot.forEach(doc => {
             const entry = doc.data();
+            const nameColor = rank <= 3 ? 'style="color: orange;"' : '';
             leaderboardElement.innerHTML += `
                 <tr>
                     <td>${rank++}</td>
-                    <td>${entry.name.toUpperCase()}</td>
+                    <td ${nameColor}>${entry.name.toUpperCase()}</td>
                     <td>${entry.score}</td>
                 </tr>
             `;
