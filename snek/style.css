@@ -65,6 +65,10 @@ html {
     line-height: 1.4;
 }
 
+.intro-text.privacy {
+    text-align: left;
+}
+
 .game-container {
     padding: 45px 25px;
     display: flex;
