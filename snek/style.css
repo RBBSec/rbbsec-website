@@ -282,6 +282,11 @@ html {
     font-family: "Press Start 2P", system-ui;
 }
 
+.rules-list {
+    text-align: left;
+    list-style-position: inside;
+}
+
 .leaderboard-table {
     width: 100%;
     border-collapse: collapse;
