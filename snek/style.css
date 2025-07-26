@@ -278,6 +278,10 @@ html {
     text-shadow: 1px 1px #000;
 }
 
+.competition-rules-title {
+    font-family: "Press Start 2P", system-ui;
+}
+
 .leaderboard-table {
     width: 100%;
     border-collapse: collapse;
