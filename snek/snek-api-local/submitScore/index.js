@@ -14,12 +14,29 @@ const scoresRef = db.collection('leaderboard');
 
 module.exports = async function (context, req) {
     context.log('Received request body:', req.body);
-    const { fullName, leaderboardName, playerEmail, score, consentCheckbox } = req.body;
+    const { fullName, leaderboardName, playerEmail, score, consentCheckbox, duration, lastMoves } = req.body;
 
-    if (!fullName || !leaderboardName || typeof score !== 'number' || score <= 0 || !consentCheckbox) {
+    // Basic validation for new fields
+    if (typeof duration !== 'number' || duration <= 0) {
         context.res = {
             status: 400,
-            body: 'Please provide fullName, leaderboardName, a valid score (>0), and consentCheckbox.',
+            body: 'Invalid duration.',
+        };
+        return;
+    }
+
+    if (!Array.isArray(lastMoves) || lastMoves.length === 0) {
+        context.res = {
+            status: 400,
+            body: 'Invalid or empty lastMoves.',
+        };
+        return;
+    }
+
+    if (!fullName || !leaderboardName || typeof score !== 'number' || score <= 0 || score > 100 || !consentCheckbox) {
+        context.res = {
+            status: 400,
+            body: 'Please provide fullName, leaderboardName, a valid score (0-100), and consentCheckbox.',
         };
         return;
     }
@@ -31,6 +48,8 @@ module.exports = async function (context, req) {
             playerEmail,
             score,
             consentCheckbox,
+            duration,
+            lastMoves,
             createdAt: FieldValue.serverTimestamp(),
         };
         context.log('Data being submitted to Firestore:', dataToSubmit);

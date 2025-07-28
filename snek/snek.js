@@ -36,6 +36,9 @@ document.addEventListener('keydown', (e) => {
 });
 
 let finalScore = 0;
+let gameStartTime = 0; // To track game duration
+const moveHistory = []; // To store recent moves
+const MAX_MOVE_HISTORY = 10; // Store last 10 moves
 
 // Start the game
 function startGame() {
@@ -43,6 +46,8 @@ function startGame() {
     splashScreen.style.display = 'none';
     gameOverScreen.style.display = 'none';
     gameInterval = setInterval(gameLoop, gameSpeed);
+    gameStartTime = Date.now(); // Record start time
+    moveHistory.length = 0; // Clear move history for new game
 
     // Scroll game container into view (use smooth scroll)
     document.querySelector('.game-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -74,6 +79,11 @@ function setDirection(input) {
 
     if (directions[input]) {
         direction = directions[input];
+        // Record move history
+        moveHistory.push(direction);
+        if (moveHistory.length > MAX_MOVE_HISTORY) {
+            moveHistory.shift(); // Remove oldest move if history exceeds limit
+        }
     }
 }
 
@@ -182,6 +192,8 @@ function endGame() {
     gameRunning = false;
 
     finalScore = snake.length - 1;
+    const duration = Date.now() - gameStartTime; // Calculate duration
+
     document.getElementById("game-over-screen").style.display = "flex";
 
     if (soundEnabled) {
@@ -223,6 +235,8 @@ function endGame() {
                         playerEmail: playerEmail,
                         score: score,
                         consentCheckbox: consentCheckbox,
+                        duration: duration, // Add duration
+                        lastMoves: moveHistory, // Add last moves
                         createdAt: new Date().toISOString() // Send as ISO string
                     }),
                 });
