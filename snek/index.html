@@ -67,10 +67,16 @@
                                     <div class="score-form-container">
                                         <h2>🎮 Submit Your Score</h2>
                                         <form id="submitScoreForm">
-                                            <input type="text" id="playerName" placeholder="Enter your name" required
+                                            <input type="text" id="fullName" placeholder="Full Name (First and Last)" required
+                                                maxlength="50" />
+                                            <input type="text" id="leaderboardName" placeholder="Leaderboard Name" required
                                                 maxlength="20" />
                                             <input type="email" id="playerEmail"
-                                                placeholder="Enter your email to win (optional)" maxlength="100" />
+                                                placeholder="Email (optional, for competition entry)" maxlength="100" />
+                                            <div class="checkbox-container">
+                                                <input type="checkbox" id="consentCheckbox" required />
+                                                <label for="consentCheckbox">I consent to subscribe and enter the competition.</label>
+                                            </div>
                                             <button type="submit">Upload Score</button>
                                         </form>
                                     </div>
