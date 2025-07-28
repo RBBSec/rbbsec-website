@@ -17,7 +17,11 @@ module.exports = async function (context, req) {
         const snapshot = await scoresRef.orderBy('score', 'desc').limit(10).get();
         const leaderboard = [];
         snapshot.forEach(doc => {
-            leaderboard.push(doc.data());
+            const data = doc.data();
+            leaderboard.push({
+                leaderboardName: data.leaderboardName,
+                score: data.score
+            });
         });
 
         context.res = {
