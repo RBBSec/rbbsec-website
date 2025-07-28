@@ -451,6 +451,25 @@ html {
     text-shadow: 2px 2px #000;
 }
 
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    margin: 0 5px 0 0;
+}
+
+.checkbox-container label {
+    margin: 0;
+    font-size: 14px;
+    color: #d4cfd0;
+}
+
 
 
 
