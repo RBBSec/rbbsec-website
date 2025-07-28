@@ -463,10 +463,8 @@ html {
 }
 
 .checkbox-container input[type="checkbox"] {
-    width: auto;
+    width: 10%;
     margin: 0 5px 0 0;
-    flex-shrink: 0; /* Prevent checkbox from shrinking */
-    flex-grow: 0; /* Prevent checkbox from growing */
 }
 
 .checkbox-container label {
@@ -474,6 +472,7 @@ html {
     font-size: 14px;
     color: #d4cfd0;
     flex-grow: 1; /* Allow label to take available space */
+    text-align: left;
 }
 
 
