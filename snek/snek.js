@@ -207,17 +207,31 @@ function endGame() {
         }
 
         try {
-            await window.firebase.addDoc(window.firebase.scoresRef, {
-                fullName: fullName,
-                leaderboardName: leaderboardName,
-                email: playerEmail,
-                score: score,
-                createdAt: new Date()
+            const response = await fetch("https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/submitScore", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    fullName: fullName,
+                    leaderboardName: leaderboardName,
+                    playerEmail: playerEmail,
+                    score: score,
+                    consentCheckbox: consentCheckbox,
+                    createdAt: new Date().toISOString() // Send as ISO string
+                }),
             });
-            alert("Score submitted!");
-            loadLeaderboard(); // refresh with latest data
+
+            if (response.ok) {
+                alert("Score submitted!");
+                loadLeaderboard(); // refresh with latest data
+            } else {
+                const errorText = await response.text();
+                console.error("Azure Function submission error:", response.status, errorText);
+                alert("Error submitting score! " + errorText);
+            }
         } catch (err) {
-            console.error("Firebase submission error:", err);
+            console.error("Network or other submission error:", err);
             alert("Error submitting score!");
         }
     };
