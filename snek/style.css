@@ -78,7 +78,7 @@ html {
 }
 
 .intro-text.competition {
-    text-align: left;
+    text-align: left !important;
 }
 
 .intro-text.competition a {
