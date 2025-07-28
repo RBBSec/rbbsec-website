@@ -85,6 +85,16 @@ html {
     color: #00ffcc;
 }
 
+.intro-text.privacy h1,
+.intro-text.competition h1 {
+    color: #e51f27;
+}
+
+.intro-text.privacy h2,
+.intro-text.competition h2 {
+    color: #00ffcc;
+}
+
 .rbbsec-title {
     color: #00ffcc;
     font-weight: bold;
