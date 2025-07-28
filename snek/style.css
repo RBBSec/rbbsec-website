@@ -454,9 +454,12 @@ html {
 .checkbox-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 10px;
     margin-bottom: 10px;
+    width: 90%; /* Added to constrain the container width */
+    margin-left: auto; /* Added to center the container */
+    margin-right: auto; /* Added to center the container */
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -468,6 +471,7 @@ html {
     margin: 0;
     font-size: 14px;
     color: #d4cfd0;
+    text-align: left;
 }
 
 
