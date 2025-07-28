@@ -241,6 +241,7 @@ function endGame() {
             }
         };
     }
+}
 
 document.getElementById("restartBtn").addEventListener("click", () => {
     document.getElementById("game-over-screen").style.display = "none";
