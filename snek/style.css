@@ -415,6 +415,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 100%; /* Ensure it doesn't exceed parent height */
+    overflow-y: auto; /* Add scrollbar if content overflows vertically */
 }
 
 .game-over-text {
