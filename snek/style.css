@@ -471,13 +471,8 @@ html {
     margin: 0;
     font-size: 14px;
     color: #d4cfd0;
-    flex-grow: 1; /* Allow label to take available space */
     text-align: left;
 }
-
-
-
-
 
 .sound-toggle {
     font-family: 'VT323', monospace;
