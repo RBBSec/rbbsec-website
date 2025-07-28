@@ -282,7 +282,7 @@ html {
     font-family: "Press Start 2P", system-ui;
 }
 
-.rules-list {
+.intro-text .rules-list {
     text-align: left;
     list-style-position: inside;
 }
