@@ -190,52 +190,57 @@ function endGame() {
         bgMusic.currentTime = 0;
     }
 
+    const scoreFormContainer = document.querySelector(".score-form-container");
     const form = document.getElementById("submitScoreForm");
 
-    form.onsubmit = async function (e) {
-        e.preventDefault();
+    if (finalScore <= 0) {
+        scoreFormContainer.style.display = "none";
+    } else {
+        scoreFormContainer.style.display = "block"; // Or 'flex' if that's its default
+        form.onsubmit = async function (e) {
+            e.preventDefault();
 
-        const fullName = document.getElementById("fullName").value.trim();
-        const leaderboardName = document.getElementById("leaderboardName").value.trim();
-        const playerEmail = document.getElementById("playerEmail").value.trim();
-        const consentCheckbox = document.getElementById("consentCheckbox").checked;
-        const score = finalScore;
+            const fullName = document.getElementById("fullName").value.trim();
+            const leaderboardName = document.getElementById("leaderboardName").value.trim();
+            const playerEmail = document.getElementById("playerEmail").value.trim();
+            const consentCheckbox = document.getElementById("consentCheckbox").checked;
+            const score = finalScore;
 
-        if (!fullName || !leaderboardName || score <= 0 || !consentCheckbox) {
-            alert("Please fill in all required fields, earn a score, and consent to enter the competition!");
-            return;
-        }
-
-        try {
-            const response = await fetch("https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/submitScore", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    fullName: fullName,
-                    leaderboardName: leaderboardName,
-                    playerEmail: playerEmail,
-                    score: score,
-                    consentCheckbox: consentCheckbox,
-                    createdAt: new Date().toISOString() // Send as ISO string
-                }),
-            });
-
-            if (response.ok) {
-                alert("Score submitted!");
-                loadLeaderboard(); // refresh with latest data
-            } else {
-                const errorText = await response.text();
-                console.error("Azure Function submission error:", response.status, errorText);
-                alert("Error submitting score! " + errorText);
+            if (!fullName || !leaderboardName || score <= 0 || !consentCheckbox) {
+                alert("Please fill in all required fields, earn a score, and consent to enter the competition!");
+                return;
             }
-        } catch (err) {
-            console.error("Network or other submission error:", err);
-            alert("Error submitting score!");
-        }
-    };
-}
+
+            try {
+                const response = await fetch("https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/submitScore", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        fullName: fullName,
+                        leaderboardName: leaderboardName,
+                        playerEmail: playerEmail,
+                        score: score,
+                        consentCheckbox: consentCheckbox,
+                        createdAt: new Date().toISOString() // Send as ISO string
+                    }),
+                });
+
+                if (response.ok) {
+                    alert("Score submitted!");
+                    loadLeaderboard(); // refresh with latest data
+                } else {
+                    const errorText = await response.text();
+                    console.error("Azure Function submission error:", response.status, errorText);
+                    alert("Error submitting score! " + errorText);
+                }
+            } catch (err) {
+                console.error("Network or other submission error:", err);
+                alert("Error submitting score!");
+            }
+        };
+    }
 
 document.getElementById("restartBtn").addEventListener("click", () => {
     document.getElementById("game-over-screen").style.display = "none";
