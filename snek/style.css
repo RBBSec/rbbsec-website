@@ -457,19 +457,23 @@ html {
     justify-content: flex-start;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* Removed width and auto margins to let it fit content */
+    width: 90%; /* Constrain width to align with inputs */
+    margin-left: auto; /* Center the container */
+    margin-right: auto; /* Center the container */
 }
 
 .checkbox-container input[type="checkbox"] {
     width: auto;
     margin: 0 5px 0 0;
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+    flex-grow: 0; /* Prevent checkbox from growing */
 }
 
 .checkbox-container label {
     margin: 0;
     font-size: 14px;
     color: #d4cfd0;
-    /* Removed text-align: left; as it's not needed with flex-start */
+    flex-grow: 1; /* Allow label to take available space */
 }
 
 
