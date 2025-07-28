@@ -99,7 +99,7 @@ function draw() {
 
     snake.forEach((segment, index) => {
         if (index === 0) {
-            createImageElement('snake-head', segment, 'snake_pix.png');
+            createImageElement('snake-head', segment, 'assets/snake_pix.png');
         } else {
             createElement('snake', segment);
         }
@@ -108,7 +108,7 @@ function draw() {
     if (snake.some(seg => seg.x === food.x && seg.y === food.y)) {
         food = generateFood();
     }
-    createImageElement('food', food, 'food.png');
+    createImageElement('food', food, 'assets/food.png');
     updateScore();
 }
 
