@@ -77,6 +77,11 @@ html {
     color: #00ffcc;
 }
 
+.rbbsec-title {
+    color: #00ffcc;
+    font-weight: bold;
+}
+
 .game-container {
     padding: 45px 25px;
     display: flex;
