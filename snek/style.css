@@ -77,6 +77,14 @@ html {
     color: #00ffcc;
 }
 
+.intro-text.competition {
+    text-align: left;
+}
+
+.intro-text.competition a {
+    color: #00ffcc;
+}
+
 .rbbsec-title {
     color: #00ffcc;
     font-weight: bold;
