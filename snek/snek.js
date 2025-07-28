@@ -195,19 +195,22 @@ function endGame() {
     form.onsubmit = async function (e) {
         e.preventDefault();
 
-        const name = document.getElementById("playerName").value.trim();
-        const email = document.getElementById("playerEmail").value.trim();
+        const fullName = document.getElementById("fullName").value.trim();
+        const leaderboardName = document.getElementById("leaderboardName").value.trim();
+        const playerEmail = document.getElementById("playerEmail").value.trim();
+        const consentCheckbox = document.getElementById("consentCheckbox").checked;
         const score = finalScore;
 
-        if (!name || score <= 0) {
-            alert("Please enter your name and earn a score!");
+        if (!fullName || !leaderboardName || score <= 0 || !consentCheckbox) {
+            alert("Please fill in all required fields, earn a score, and consent to enter the competition!");
             return;
         }
 
         try {
             await window.firebase.addDoc(window.firebase.scoresRef, {
-                name: name,
-                email: email,
+                fullName: fullName,
+                leaderboardName: leaderboardName,
+                email: playerEmail,
                 score: score,
                 createdAt: new Date()
             });
