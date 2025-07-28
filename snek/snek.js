@@ -250,25 +250,22 @@ document.getElementById("restartBtn").addEventListener("click", () => {
 
 async function loadLeaderboard() {
     try {
-        const q = window.firebase.query(
-            window.firebase.scoresRef,
-            window.firebase.orderBy("score", "desc"),
-            window.firebase.limit(10)
-        );
-
-        const snapshot = await window.firebase.getDocs(q);
+        const response = await fetch("https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/getLeaderboard");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const leaderboardData = await response.json();
 
         const leaderboardElement = document.getElementById("leaderboard");
         leaderboardElement.innerHTML = "";
 
         let rank = 1;
-        snapshot.forEach(doc => {
-            const entry = doc.data();
+        leaderboardData.forEach(entry => {
             const nameColor = rank <= 3 ? 'style="color: orange;"' : '';
             leaderboardElement.innerHTML += `
                 <tr>
                     <td>${rank++}</td>
-                    <td ${nameColor}>${entry.name.toUpperCase()}</td>
+                    <td ${nameColor}>${entry.leaderboardName.toUpperCase()}</td>
                     <td>${entry.score}</td>
                 </tr>
             `;
