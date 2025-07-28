@@ -408,7 +408,6 @@ html {
     justify-content: center;
     align-items: center;
     z-index: 20;
-    margin-top: 50px; /* Adjust this value as needed */
 }
 
 .game-over-box {
