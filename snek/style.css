@@ -359,6 +359,7 @@ html {
 }
 
 .score-form-container h2 {
+    margin-top: 10px;
     margin-bottom: 10px;
     font-size: 24px;
     color: #00ffcc;
