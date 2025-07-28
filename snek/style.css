@@ -65,6 +65,10 @@ html {
     line-height: 1.4;
 }
 
+.intro-text a {
+    color: #00ffcc;
+}
+
 .intro-text.rules-container {
     text-align: left;
 }
