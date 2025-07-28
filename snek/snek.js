@@ -46,7 +46,7 @@ function startGame() {
     splashScreen.style.display = 'none';
     gameOverScreen.style.display = 'none';
     gameInterval = setInterval(gameLoop, gameSpeed);
-    gameStartTime = Date.now(); // Record start time
+    gameStartTime = performance.now(); // Record start time with high precision
     moveHistory.length = 0; // Clear move history for new game
 
     // Scroll game container into view (use smooth scroll)
@@ -192,7 +192,7 @@ function endGame() {
     gameRunning = false;
 
     finalScore = snake.length - 1;
-    const duration = Date.now() - gameStartTime; // Calculate duration
+    const duration = performance.now() - gameStartTime; // Calculate duration with high precision
 
     document.getElementById("game-over-screen").style.display = "flex";
 

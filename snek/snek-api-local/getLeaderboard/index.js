@@ -14,19 +14,33 @@ const scoresRef = db.collection('leaderboard');
 
 module.exports = async function (context, req) {
     try {
-        const snapshot = await scoresRef.orderBy('score', 'desc').limit(10).get();
-        const leaderboard = [];
+        // Fetch all scores, ordered by score descending
+        const snapshot = await scoresRef.orderBy('score', 'desc').get();
+        
+        const uniqueLeaderboard = new Map(); // Map to store highest score per email
+
         snapshot.forEach(doc => {
             const data = doc.data();
-            leaderboard.push({
-                leaderboardName: data.leaderboardName,
-                score: data.score
-            });
+            const playerEmail = data.playerEmail; // Assuming playerEmail is stored
+
+            // If this email is not yet in the map, or if this score is higher
+            if (playerEmail && (!uniqueLeaderboard.has(playerEmail) || data.score > uniqueLeaderboard.get(playerEmail).score)) {
+                uniqueLeaderboard.set(playerEmail, {
+                    leaderboardName: data.leaderboardName,
+                    score: data.score,
+                    // You might want to include other fields here if needed by frontend
+                });
+            }
         });
+
+        // Convert map values to an array, sort by score, and take top 10
+        const finalLeaderboard = Array.from(uniqueLeaderboard.values())
+                                    .sort((a, b) => b.score - a.score)
+                                    .slice(0, 10);
 
         context.res = {
             status: 200,
-            body: leaderboard,
+            body: finalLeaderboard,
             headers: {
                 'Content-Type': 'application/json'
             }

@@ -17,7 +17,7 @@ module.exports = async function (context, req) {
     const { fullName, leaderboardName, playerEmail, score, consentCheckbox, duration, lastMoves } = req.body;
 
     // Basic validation for new fields
-    if (typeof duration !== 'number' || duration <= 0) {
+    if (typeof duration !== 'number' || duration < 1) {
         context.res = {
             status: 400,
             body: 'Invalid duration.',

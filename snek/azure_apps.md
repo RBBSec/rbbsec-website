@@ -1,12 +1,7 @@
 
 
-#### 15. Basic Score Validation (Anti-Cheating)
+#### 19. Frontend Duration Calculation Precision
 
-*   **Problem:** Users could potentially submit arbitrary high scores directly via the console, bypassing game logic.
-*   **Resolution:** Implemented server-side validation in `submitScore/index.js` to reject scores greater than 100.
-    ```javascript
-    if (!fullName || !leaderboardName || typeof score !== 'number' || score <= 0 || score > 100 || !consentCheckbox) {
-        // ... return 400 error
-    }
-    ```
-*   **Deployment:** Instructed user to re-deploy the function app to apply these changes.
+*   **Problem:** Score submission failed with "Invalid duration" error even for legitimate short games, as `Date.now()` resulted in 0ms duration.
+*   **Resolution:** Modified `snek.js` to use `performance.now()` for calculating `gameStartTime` and `duration`. This provides higher precision, ensuring even very short game durations are positive and pass backend validation.
+*   **Deployment:** Instructed user to re-deploy the frontend code to apply these changes.
