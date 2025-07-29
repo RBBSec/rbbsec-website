@@ -41,6 +41,16 @@ module.exports = async function (context, req) {
         return;
     }
 
+    // Server-side email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (playerEmail && !emailRegex.test(playerEmail)) {
+        context.res = {
+            status: 400,
+            body: 'Invalid email address format.',
+        };
+        return;
+    }
+
     try {
         const dataToSubmit = {
             fullName,

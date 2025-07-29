@@ -223,6 +223,13 @@ function endGame() {
                 return;
             }
 
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (playerEmail && !emailRegex.test(playerEmail)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
             try {
                 const response = await fetch("https://api.rbbsec.com/api/submitScore", {
                     method: "POST",
