@@ -1,4 +1,4 @@
-# RBBSec Initial Launch Website
+# RBBSec Snek Hunter Website
 
 ```mermaid
 graph TD;
@@ -8,7 +8,6 @@ graph TD;
    C -- Submits Score --> E{Snek API};
    C -- Loads Leaderboard --> E;
    E -- Stores/Retrieves --> F[Leaderboard Data];
-```
 
 Resource Group: Website
 VM: API (Linux and running Ubuntu)
