@@ -308,13 +308,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Prevent spacebar from scrolling the page
     window.addEventListener("keydown", (e) => {
-        // Allow spacebar in input fields
-        if (e.code === "Space" && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
-            return;
-        }
-        // Prevent spacebar from scrolling the page or starting game if not intended
+        // If spacebar is pressed
         if (e.code === "Space" || e.keyCode === 32) {
-            e.preventDefault();
+            // If the target is NOT an input or textarea, prevent default behavior
+            if (!(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+                e.preventDefault();
+            }
         }
     });
 
