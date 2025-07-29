@@ -351,15 +351,14 @@ html {
 .score-form-container {
     background-color: #263c49;
     padding-top: 0px;
-    padding-bottom: 20px;
-    width: 300px;
+    padding-bottom: 0px;
+    width: 320px;
     margin-bottom: 5px;
     font-family: 'VT323', monospace;
     text-align: center;
 }
 
 .score-form-container h2 {
-    margin-top: 10px;
     margin-bottom: 10px;
     font-size: 24px;
     color: #00ffcc;
@@ -464,7 +463,7 @@ html {
 
 .checkbox-container input[type="checkbox"] {
     width: 10% !important;
-    margin: 0 0px 0 0;
+    margin: 0 5px 0 0;
 }
 
 .checkbox-container label {
