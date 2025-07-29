@@ -198,6 +198,7 @@ function endGame() {
 
     finalScore = snake.length - 1;
     const duration = performance.now() - gameStartTime; // Calculate duration with high precision
+    const currentMoveHistory = [...moveHistory]; // Capture a copy of moveHistory
 
     document.getElementById("game-over-screen").style.display = "flex";
 
@@ -248,7 +249,7 @@ function endGame() {
                         score: score,
                         consentCheckbox: consentCheckbox,
                         duration: duration, // Add duration
-                        lastMoves: moveHistory, // Add last moves
+                        lastMoves: currentMoveHistory, // Add last moves
                         createdAt: new Date().toISOString() // Send as ISO string
                     }),
                 });
