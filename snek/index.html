@@ -58,40 +58,40 @@
                         <div class="game-border-3">
                             <div id="game-board"></div>
 
-                            <!-- Game Over -->
-                            <div id="game-over-screen" class="game-over-screen" style="display: none;">
-                                <div class="game-over-box">
-                                    <h1 class="game-over-text">
-                                        GAME OVER<span class="blinking-cursor">_</span>
-                                    </h1>
-                                    <div class="score-form-container">
-                                        <h2>🎮 Submit Your Score</h2>
-                                        <form id="submitScoreForm">
-                                            <input type="text" id="fullName" placeholder="Full Name (First and Last)" required
-                                                maxlength="50" />
-                                            <input type="text" id="leaderboardName" placeholder="Leaderboard Name" required
-                                                maxlength="20" />
-                                            <input type="email" id="playerEmail"
-                                                placeholder="Email" maxlength="100" />
-                                            <div class="checkbox-container">
-                                                <input type="checkbox" id="consentCheckbox" required />
-                                                <label for="consentCheckbox">I consent to subscribe and maybe win.</label>
-                                            </div>
-                                            <button type="submit">Upload Score</button>
-                                        </form>
-                                    </div>
-                                    <button id="restartBtn" class="restart-button">PLAY AGAIN?</button>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
             
             <!-- Splash screen -->
             <div id="splash-screen">
 
+            </div>
+
+            <!-- Game Over -->
+            <div id="game-over-screen" class="game-over-screen" style="display: none;">
+                <div class="game-over-box">
+                    <h1 class="game-over-text">
+                        GAME OVER<span class="blinking-cursor">_</span>
+                    </h1>
+                    <div class="score-form-container">
+                        <h2>🎮 Submit Your Score</h2>
+                        <form id="submitScoreForm">
+                            <input type="text" id="fullName" placeholder="Full Name (First and Last)" required
+                                maxlength="50" />
+                            <input type="text" id="leaderboardName" placeholder="Leaderboard Name" required
+                                maxlength="20" />
+                            <input type="email" id="playerEmail"
+                                placeholder="Email" maxlength="100" />
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="consentCheckbox" required />
+                                <label for="consentCheckbox">I consent to subscribe and maybe win.</label>
+                            </div>
+                            <button type="submit">Upload Score</button>
+                        </form>
+                    </div>
+                    <button id="restartBtn" class="restart-button">PLAY AGAIN?</button>
+                </div>
             </div>
             
         </div>
