@@ -378,14 +378,16 @@ html {
 }
 
 #submitScoreForm button {
-    margin-top: 10px;
+    margin: 10px auto 10px; /* Added 10px bottom margin and centered horizontally */
     padding: 10px 20px;
     font-family: 'VT323', monospace;
     background-color: #e51f27;
     color: white;
     border: none;
     border-radius: 6px;
+    font-size: 20px; /* Matched restart-button font-size */
     cursor: pointer;
+    text-shadow: 2px 2px #000; /* Matched restart-button text-shadow */
 }
 
 @keyframes flash-border {
