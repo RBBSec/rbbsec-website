@@ -1,7 +1,13 @@
 # RBBSec Snek Hunter Website
 
 ```mermaid 
-graph TD A["User (Browser)"] --> B["index.html"] B --> C["snek.js"] B --> D["style.css"] C -->|Submits Score| E{"Snek API"} C -->|Loads Leaderboard| E E -->|Stores/Retrieves| F["Leaderboard Data"] 
+graph TD 
+    A["User (Browser)"] --> B["index.html"]
+    B --> C["snek.js"]
+    B --> D["style.css"]
+    C -->|Submits Score| E{"Snek API"}
+    C -->|Loads Leaderboard| E 
+    E -->|Stores/Retrieves| F["Leaderboard Data"] 
 ```
 
 Resource Group: Website
