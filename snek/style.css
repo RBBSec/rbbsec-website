@@ -463,8 +463,8 @@ html {
 }
 
 .checkbox-container input[type="checkbox"] {
-    width: 10%;
-    margin: 0 5px 0 0;
+    width: 10% !important;
+    margin: 0 0px 0 0;
 }
 
 .checkbox-container label {
