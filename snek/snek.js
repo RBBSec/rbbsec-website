@@ -224,7 +224,7 @@ function endGame() {
             }
 
             try {
-                const response = await fetch("https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/submitScore", {
+                const response = await fetch("https://api.rbbsec.com/api/submitScore", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -265,7 +265,7 @@ document.getElementById("restartBtn").addEventListener("click", () => {
 
 async function loadLeaderboard() {
     try {
-        const response = await fetch("https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/getLeaderboard");
+        const response = await fetch("https://api.rbbsec.com/api/getLeaderboard");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
