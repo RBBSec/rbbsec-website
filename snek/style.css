@@ -405,16 +405,18 @@ html {
 
 .game-over-screen {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #263c49; /* Fully opaque background */
+    width: 90%; /* Slightly smaller */
+    height: 90%; /* Slightly smaller */
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 20;
+    overflow-y: auto; /* Add scrollbar if content overflows */
     padding: 10px;
     box-sizing: border-box;
 }
@@ -424,7 +426,6 @@ html {
     flex-direction: column;
     align-items: center;
     max-height: 100%; /* Ensure it doesn't exceed parent height */
-    overflow-y: auto; /* Add scrollbar if content overflows vertically */
     width: 100%;
     box-sizing: border-box;
 }
