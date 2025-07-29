@@ -5,6 +5,7 @@ const logo = document.getElementById('logo');
 const scoreElement = document.getElementById('score');
 const highScoreElement = document.getElementById('highScore');
 const gameOverScreen = document.getElementById("game-over-screen");
+const scoresElement = document.querySelector('.scores');
 const submitBtn = document.getElementById("submitScoreForm");
 const bgMusic = new Audio("assets/sounds/bg_music.mp3");
 bgMusic.loop = true;
@@ -48,6 +49,9 @@ function startGame() {
     gameInterval = setInterval(gameLoop, gameSpeed);
     gameStartTime = performance.now(); // Record start time with high precision
     moveHistory.length = 0; // Clear move history for new game
+
+    // Show scores
+    scoresElement.style.display = 'flex';
 
     // Scroll game container into view (use smooth scroll)
     document.querySelector('.game-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -161,6 +165,7 @@ function resetGame() {
     direction = 'RIGHT';
     gameSpeed = 150;
     updateScore();
+    scoresElement.style.display = 'none';
 }
 
 function updateScore() {
@@ -315,6 +320,9 @@ window.addEventListener("DOMContentLoaded", () => {
     splashScreen.addEventListener("click", () => {
         if (!gameRunning) startGame();
     });
+
+    // Initially hide scores
+    scoresElement.style.display = 'none';
 
     document.querySelectorAll(".mobile-controls .arrow").forEach(button => {
         button.addEventListener("click", () => {
