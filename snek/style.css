@@ -149,6 +149,7 @@ html {
 
 .game-border-1 {
     padding: 10px;
+    margin-top:10px;
 }
 
 .game-border-2 {
@@ -213,7 +214,8 @@ html {
     font-size: 16px;
     color: #e51f27;
     letter-spacing: 1px;
-    margin-bottom: -10px;
+    margin-bottom: -20px;
+    margin-top: 10px;
     text-shadow: 1px 1px #000;
 }
 
