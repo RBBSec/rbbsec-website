@@ -453,8 +453,7 @@ html {
 
 .checkbox-container {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: left;
     margin-top: 10px;
     margin-bottom: 10px;
     width: 90%; /* Constrain width to align with inputs */
