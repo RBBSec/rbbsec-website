@@ -28,6 +28,11 @@ draw();
 
 // Keyboard listener
 document.addEventListener('keydown', (e) => {
+    // Prevent spacebar from starting game if typing in input/textarea
+    if (e.code === 'Space' && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+        return; // Allow space in input fields
+    }
+
     if (!gameRunning && e.code === 'Space') {
         startGame();
     } else if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
