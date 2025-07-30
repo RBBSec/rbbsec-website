@@ -9,7 +9,7 @@ graph TD
     C <-->|Loads Leaderboard| F["Nginx in Azure"] 
     F --> E["Snek API"]
     E --> |Function: SubmitScore| G["Firebase database"] 
-    E -- |Function: getLeaderboard| G    
+    E --> |Function: getLeaderboard| G    
 ```
 
 Resource Group: Website
