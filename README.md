@@ -23,14 +23,14 @@ server {
     server_name api.rbbsec.com;
 
     location /api/submitScore {
-        proxy_pass https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/submitScore;
+        proxy_pass https://api.rbbsec.com/api/submitScore;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 
     location /api/getLeaderboard {
-        proxy_pass https://snek-api-huhkdfbbcrbwcvhf.australiaeast-01.azurewebsites.net/api/getLeaderboard;
+        proxy_pass https://api.rbbsec.com/api/getLeaderboard;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
