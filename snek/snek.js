@@ -234,23 +234,8 @@ function endGame() {
                 return;
             }
 
-            // Full Name validation
-            const nameRegex = /^[a-zA-Z\u00C0-\u017F' -]+$/;
-            const words = fullName.split(/\s+/).filter(word => word.length > 0);
-            if (!nameRegex.test(fullName)) {
-                alert("Full Name contains invalid characters. Please use letters, spaces, hyphens (-), or apostrophes (').");
-                return;
-            }
-            if (words.length < 2 || words.length > 3) {
-                alert("Please enter your first and last name (2-3 words total).");
-                return;
-            }
-
             // Basic email validation
-            const emailRegex = /^[^
-@]+@[^
-@]+\.[^
-@]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (playerEmail && !emailRegex.test(playerEmail)) {
                 alert("Please enter a valid email address.");
                 return;
