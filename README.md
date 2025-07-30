@@ -7,8 +7,8 @@ graph TD
     B --> D["style.css"]
     C -->|Submits Score| F["Nginx in Azure"]
     F --> E["Snek API"]
-    C <-->|Loads Leaderboard| E 
-    E -->|Stores/Retrieves| F["Leaderboard Data"] 
+    C <-->|Loads Leaderboard| F["Nginx in Azure"] 
+    E -->|Stores/Retrieves| G["Leaderboard Data"] 
 ```
 
 Resource Group: Website
