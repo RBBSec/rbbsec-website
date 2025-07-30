@@ -41,8 +41,27 @@ module.exports = async function (context, req) {
         return;
     }
 
+    // Full Name validation
+    const nameRegex = /^[a-zA-Z\u00C0-\u017F' -]+$/;
+    const words = fullName.trim().split(/\s+/).filter(word => word.length > 0);
+    if (!nameRegex.test(fullName)) {
+        context.res = {
+            status: 400,
+            body: "Full Name contains invalid characters. Please use letters, spaces, hyphens (-), or apostrophes (').",
+        };
+        return;
+    }
+    if (words.length < 2 || words.length > 3) {
+        context.res = {
+            status: 400,
+            body: 'Please provide a full name with 2 to 3 words.',
+        };
+        return;
+    }
+
     // Server-side email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^
+\s@]+@[^\s@]+\.[^\s@]+$/;
     if (playerEmail && !emailRegex.test(playerEmail)) {
         context.res = {
             status: 400,
