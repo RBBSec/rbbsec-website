@@ -6,9 +6,10 @@ graph TD
     B --> C["snek.js"]
     B --> D["style.css"]
     C -->|Submits Score| F["Nginx in Azure"]
-    F --> E["Snek API"]
     C <-->|Loads Leaderboard| F["Nginx in Azure"] 
-    E -->|Stores/Retrieves| G["Leaderboard Data"] 
+    F --> E["Snek API"]
+    E --> |Function: SubmitScore| G["Firebase database"] 
+    E -- |Function: getLeaderboard| G    
 ```
 
 Resource Group: Website
