@@ -5,8 +5,8 @@ graph TD
     A["User (Browser)"] --> B["index.html"]
     B --> C["snek.js"]
     B --> D["style.css"]
-    C -->|Submits Score| F["Nginx in Azure"]
-    C <-->|Loads Leaderboard| F["Nginx in Azure"] 
+    C -->|endGame| F["Nginx in Azure"]
+    C <-->|loadLeaderboard| F["Nginx in Azure"] 
     F --> E["Snek API"]
     E --> |Function: SubmitScore| G["Firebase database"] 
     E --> |Function: getLeaderboard| G    
