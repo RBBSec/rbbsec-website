@@ -70,7 +70,8 @@ module.exports = async function (context, req) {
     }
 
     // Server-side email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^
+\s@]+@[^\s@]+\.[^\s@]+$/;
     if (playerEmail && !emailRegex.test(playerEmail)) {
         context.res = {
             status: 400,
