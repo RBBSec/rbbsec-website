@@ -59,6 +59,16 @@ module.exports = async function (context, req) {
         return;
     }
 
+    // Leaderboard Name validation
+    const leaderboardRegex = /^[a-zA-Z0-9_ -]+$/;
+    if (!leaderboardRegex.test(leaderboardName)) {
+        context.res = {
+            status: 400,
+            body: "Leaderboard Name contains invalid characters. Please use only letters, numbers, spaces, hyphens (-), or underscores (_).",
+        };
+        return;
+    }
+
     // Server-side email validation
     const emailRegex = /^[^
 \s@]+@[^\s@]+\.[^\s@]+$/;
