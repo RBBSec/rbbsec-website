@@ -287,7 +287,7 @@ function endGame() {
                     alert("Error submitting score! " + errorText);
                 }
             } catch (err) {
-                console.error("Network or other submission error:", err);
+                console..error("Network or other submission error:", err);
                 alert("Error submitting score!");
             }
         };
